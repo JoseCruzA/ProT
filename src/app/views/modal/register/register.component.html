@@ -1,0 +1,120 @@
+<div class="modal-background">
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title has-text-centered">
+        {{ 'general.signup' | translate }}
+      </p>
+      <button class="delete" aria-label="close" (click)="closeModal()"></button>
+    </header>
+    <form [formGroup]="register" (ngSubmit)="onSubmit()">
+      <section class="modal-card-body">
+        <div class="columns">
+          <div class="field column">
+            <label class="label">{{ 'general.firstname' | translate }}</label>
+            <p class="control">
+              <input class="input" type="text" name="firstname" id="firstname"
+                formControlName="firstname">
+            </p>
+          </div>
+          <div class="field column">
+            <label class="label">{{ 'general.lastname' | translate }}</label>
+            <p class="control">
+              <input class="input" type="text" name="lastname" id="lastname"
+                formControlName="lastname">
+            </p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="field column">
+            <label class="label">{{ 'general.username' | translate }}</label>
+            <p class="control">
+              <input class="input" type="text" name="username" id="username"
+                formControlName="username">
+            </p>
+          </div>
+          <div class="field column">
+            <label class="label">{{ 'general.email' | translate }}</label>
+            <p class="control">
+              <input class="input" type="email" name="email" id="email"
+                formControlName="email">
+            </p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="field column">
+            <label class="label">{{ 'general.country' | translate }}</label>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth select-search">
+                <select iname="country" id="country" formControlName="country"
+                  (change)="onSelectCountry()">
+                  <option selected disabled>{{ 'general.sel-country' | translate }}</option>
+                  <option [id]="country.callingCodes[0]" *ngFor="let country of
+                    countries"
+                    [value]="country.translations[selectedLanguage] ?
+                    country.translations[selectedLanguage] : country.name">
+                    {{ country.translations[selectedLanguage] ?
+                    country.translations[selectedLanguage] : country.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="field column">
+            <label class="label">{{ 'general.phone' | translate }}</label>
+            <div class="field has-addons">
+              <p class="control country-code-btn">
+                <a class="button is-static">
+                  <div *ngIf="flag != ''">
+                    <img [src]="flag" width="20">
+                    +{{ this.register.value.code }}
+                  </div>
+                </a>
+              </p>
+              <p class="control">
+                <input class="input" type="number" name="phone" id="phone"
+                  formControlName="phone">
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="field column">
+            <label class="label">{{ 'general.password' | translate }}</label>
+            <p class="control">
+              <input class="input" type="password" name="password"
+                id="password" formControlName="password">
+            </p>
+          </div>
+          <div class="field column">
+            <label class="label">{{ 'general.re-pass' | translate }}</label>
+            <p class="control">
+              <input class="input" type="password" name="re-password"
+                id="re-password" formControlName="rePassword">
+            </p>
+          </div>
+        </div>
+        <label class="checkbox">
+          <input type="checkbox" id="terms" name="terms" formControlName="terms">
+          {{ 'general.agree' | translate }}
+          <a href="">
+            {{ 'about.terms-cond' | translate }}
+          </a>
+        </label>
+        <p class="already-info has-text-centered">
+          {{ 'general.have-account' | translate }}
+          <a (click)="closeAndLogin()">
+            {{ 'general.login' | translate }}
+          </a>
+        </p>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button button-submit" type="submit" [disabled]="register.invalid">
+          {{ 'general.signup' | translate }}
+        </button>
+        <button class="button button-reset" type="reset" (click)="closeModal()">
+          {{ 'general.cancel' | translate }}
+        </button>
+      </footer>
+    </form>
+  </div>
+</div>

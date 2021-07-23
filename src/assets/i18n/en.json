@@ -1,0 +1,76 @@
+{
+  "header": {
+      "home": "Home",
+      "about": "About Royal Green",
+      "events": "Events",
+      "library": "Library",
+      "training": "Training center"
+  },
+  "home": {
+    "info-title": "Training and marketing system",
+    "info-subtitle": "Duplication System for ProT partners",
+    "learn-system": "Learn to use our system"
+  },
+  "footer": {
+    "rights": "All rights reserved"
+  },
+  "general": {
+    "signup": "Sign up",
+    "login": "Log in",
+    "page-title": "ProT System | Business system",
+    "no-support": "Your browser doesn't support this element",
+    "cancel": "Cancel",
+    "firstname": "Firstname",
+    "lastname": "Lastname",
+    "username": "Username",
+    "email": "Email",
+    "country": "Country",
+    "phone": "Phone",
+    "password": "Password",
+    "re-pass": "Confirm Password",
+    "agree": "I agree",
+    "sel-country": "Select country...",
+    "have-account": "Already have an account?",
+    "have-no-account": "Have not Account?",
+    "remember": "Remember me"
+  },
+  "events": {
+    "previous": "Previous",
+    "today": "Today",
+    "next": "Next",
+    "month": "Month",
+    "week": "Week",
+    "day": "Day"
+  },
+  "about": {
+    "what-is-title": "What's Royal Green?",
+    "what-is-desc": "Colombo-Mexican Company with corporative place in Mexico D.F",
+    "distribution-system": "Royal Green creates an effective dstribution system based on emerald mining, carving, jewellery creation and export of the same and in this way be able to distribute a percentage of the profits to its customers.",
+    "company-mission": "Our mission is give to our customers effective ways to get profits using our distribution system, so like the exclusive use of our gemstone.",
+    "company-goal": "Our principal goal is to control the emerald and rare jewels market for the american, european and asian market, offering an aggressive but balanced payment plan.",
+    "invest-title": "Invest in emeralds and earn in cryptocurrencies",
+    "invest-company": "<strong class='is-uppercase has-text-white'>Royal Green</strong> is the first company that creates an online investment system based on <strong class='first-upper has-text-white'>emeralds</strong> trade.",
+    "our-company": "Our company is legally constituted in <strong class='has-text-white'>Mexico</strong> and it's regulated by the <strong class='has-text-white'>Fintech Lay</strong>. Actually we have corporative place in Mexico City.",
+    "commercial": "Royal Green make commercial activities with <strong class='has-text-white'>Colombian Emeralds</strong> under Strategic Partnership with recognized Companies in this guild.",
+    "package-created": "We've created a variety of <strong class='has-text-white'>investment</strong> packages, that give to our customers the posibility of invest since 50 USD to 50.000 USD and get automatic <strong class='has-text-white'>returns</strong> between 0,4% and 1% on weekdays, until complete <strong class='has-text-white'>200% of their investment</strong> (100% Equity, 100% Returns)",
+    "pay-way": "All investements and withdrawals will be done in Bitcoin or USDT",
+    "distribution-system-title": "Distribution system",
+    "partnership": "Partnership",
+    "corporative": "Corporative",
+    "investments": "Investments",
+    "rewards": "Rewards",
+    "start-us": "Start with us",
+    "compensation-title": "Compensation plan",
+    "terms-cond": "Terms and Conditions",
+    "details": "For more details speak with the person that sent you this link",
+    "known": "Known",
+    "what-is": "What's?",
+    "about": "About",
+    "system": "System",
+    "partners": "Partners",
+    "invest": "Invest",
+    "start": "Start",
+    "compensation": "Compensation",
+    "terms": "Terms"
+  }
+}

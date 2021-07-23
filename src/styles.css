@@ -1,1 +1,144 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Raleway";src: local("Raleway"), url("assets/font/Raleway/static/Raleway-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Raleway-Medium";
+    src: local("Raleway-Medium"), url("assets/font/Raleway/static/Raleway-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Raleway-Black";
+    src: local("Raleway-Black"), url("assets/font/Raleway/static/Raleway-Black.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Raleway-Bold";
+    src: local("Raleway-Bold"), url("assets/font/Raleway/static/Raleway-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Raleway-ExtraBold";
+    src: local("Raleway"), url("assets/font/Raleway/static/Raleway-ExtraBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Raleway-ExtraLight";
+    src: local("Raleway-ExtraLight"), url("assets/font/Raleway/static/Raleway-ExtraLight.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Raleway-Light";
+    src: local("Raleway-Light"), url("assets/font/Raleway/static/Raleway-Light.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Raleway";
+    src: local("Raleway"), url("assets/font/Raleway/static/Raleway-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Raleway-SemiBold";
+    src: local("Raleway-SemiBold"), url("assets/font/Raleway/static/Raleway-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Raleway-Thin";
+    src: local("Raleway-Thin"), url("assets/font/Raleway/static/Raleway-Thin.ttf") format("truetype");
+}
+
+
+/*-----------------------------------------------------------------------------------------------------------------------------*/
+html {
+  min-height: 100%;
+  height: auto;
+}
+
+body {
+  height: auto;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #17967A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(290deg, #17E5B5 0%, #004D3B 92%);
+  border-radius: 50px;
+}
+
+.cal-day-headers, .cal-header, .cal-hour {
+  font-family: "Raleway-SemiBold", sans-serif;
+}
+
+.cal-event {
+  font-family: "Raleway", sans-serif;
+}
+
+.cal-time-events {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+div.cal-current-time-marker {
+  height: 3px;
+  background: linear-gradient(270deg, #00E5B0, #00664E);
+  background-size: 400% 400%;
+}
+
+.cal-open-day-events {
+  background: linear-gradient(290deg, #17E5B5 0%, #004D3B 92%);
+  color: #FFFFFF;
+  font-family: "Raleway", sans-serif;
+}
+
+.cal-day-number {
+  font-family: "Raleway", sans-serif;
+}
+
+.d-none {
+  display: none;
+}
+
+@media screen and (min-width: 769px) and (orientation: portrait) {
+  .cal-time-events {
+    height: 50vw;
+  }
+}
+
+@media screen and (min-height: 769px) and (orientation: landscape) {
+  .cal-time-events {
+    height: calc(100vh - 220px);
+  }
+}
+
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  .cal-time-events {
+    height: 50vw;
+  }
+}
+
+@media screen and (max-height: 768px) and (orientation: landscape) {
+  .cal-time-events {
+    height: 40vw;
+  }
+}
+
+@media screen and (max-width: 576px) and (orientation: portrait) {
+  .cal-time-events {
+    height: 100vw;
+  }
+}
+
+@media screen and (max-height: 576px) and (orientation: landscape) {
+  .cal-time-events {
+    height: 30vw;
+  }
+}
+

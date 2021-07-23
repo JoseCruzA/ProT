@@ -1,0 +1,79 @@
+#logo {
+  max-height: none;
+  width: 60px;
+  height: 65px;
+}
+
+.navbar {
+  background: linear-gradient(290deg, rgba(0, 153, 117, 0.2) 0%, rgba(0, 60, 46, 0.2) 92%);
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar-strong {
+  background: linear-gradient(290deg, rgba(0, 153, 117, 0.9) 0%, rgba(0, 60, 46, 0.9) 92%);
+}
+
+.navbar-item {
+  color: #FFFFFF;
+  text-decoration: underline 0.15em rgba(255, 255, 255, 0);
+  font-family: "Raleway-SemiBold", sans-serif;
+  transition: text-decoration-color 300ms;
+}
+
+.navbar-item:hover, .navbar-item.is-active, .navbar-item:focus, .navbar-item:focus-within {
+  background-color: unset;
+  color: #FFFFFF;
+  text-decoration-color: rgba(255, 255, 255, 1);
+}
+
+#account-icon {
+  text-decoration: none;
+}
+
+#account-icon.has-dropdown:hover .navbar-link,
+#account-icon.has-dropdown:focus .navbar-link,
+#account-icon.has-dropdown.is-active .navbar-link {
+  background-color: transparent;
+}
+
+#account-icon.has-dropdown .navbar-dropdown {
+  background: linear-gradient(290deg, rgba(0, 153, 117, 0.9) 0%, rgba(0, 60, 46, 0.9) 92%);
+}
+
+#account-icon-mobile {
+  padding: 24px;
+  height: auto;
+  text-decoration: none;
+  margin-left: auto;
+  display: none;
+}
+
+#account-icon-mobile .dropdown.is-right .dropdown-menu .dropdown-content {
+  background: linear-gradient(290deg, rgba(0, 153, 117, 0.9) 0%, rgba(0, 60, 46, 0.9) 92%);
+  font-family: "Raleway-SemiBold", sans-serif;
+}
+
+.navbar-burger {
+  font-size: 28px;
+  padding: 20px;
+  height: auto;
+  width: max-content;
+  margin: 0;
+}
+
+@media screen and (max-width: 1023px) {
+  .navbar-menu {
+    background: linear-gradient(290deg, rgb(81, 126, 115) 0%, rgb(0, 60, 46) 92%);
+    text-align: center;
+  }
+
+  #account-icon {
+    display: none;
+  }
+
+  #account-icon-mobile {
+    display: block;
+  }
+}

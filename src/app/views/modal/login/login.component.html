@@ -1,0 +1,46 @@
+<div class="modal-background">
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title has-text-centered">
+        {{ 'general.login' | translate }}
+      </p>
+      <button class="delete" aria-label="close" (click)="closeModal()"></button>
+    </header>
+    <form [formGroup]="login" (ngSubmit)="onSubmit()">
+      <section class="modal-card-body">
+        <div class="field">
+          <label class="label">{{ 'general.username' | translate }} o {{ 'general.email' | translate }}</label>
+          <p class="control">
+            <input class="input" type="text" name="user" id="user"
+              formControlName="user">
+          </p>
+        </div>
+        <div class="field">
+          <label class="label">{{ 'general.password' | translate }}</label>
+          <p class="control">
+            <input class="input" type="password" name="pass"
+              id="pass" formControlName="password">
+          </p>
+        </div>
+        <label class="checkbox">
+          <input type="checkbox" id="remember" name="remember" formControlName="remember">
+            {{ 'general.remember' | translate }}
+        </label>
+        <p class="already-info has-text-centered">
+          {{ 'general.have-no-account' | translate }}
+          <a (click)="closeAndRegister()">
+            {{ 'general.signup' | translate }}
+          </a>
+        </p>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button button-submit" type="submit" [disabled]="!login.valid">
+          {{ 'general.login' | translate }}
+        </button>
+        <button class="button button-reset" type="reset" (click)="closeModal()">
+          {{ 'general.cancel' | translate }}
+        </button>
+      </footer>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<section class="section-events has-text-centered">
+  <div class="section-events-color">
+    <br><br><br><br>
+    <h1 class="section-events-title title is-uppercase has-text-white" *ngIf="showTitle">
+      {{ 'header.events' | translate }}
+    </h1>
+    <div class="is-flex-direction-column">
+      <div class="is-flex-direction-column has-text-white calendar-title">
+        <h2>{{ viewDate | calendarDate:(view + 'ViewTitle'): selectedLanguage}}</h2>
+      </div>
+      <div id="calendar-type" class="is-flex is-flex-direction-row is-justify-content-space-around group-button-type">
+        <div class="is-flex-direction-column" *ngIf="showType">
+          <div class="buttons events-actions-calendar">
+            <div class="button button-month" (click)="setView(CalendarView.Month)" [class.active]="view === CalendarView.Month">
+              {{ 'events.month' | translate }}
+            </div>
+            <div class="button button-week" (click)="setView(CalendarView.Week)" [class.active]="view === CalendarView.Week">
+              {{ 'events.week' | translate }}
+            </div>
+            <div class="button button-day" (click)="setView(CalendarView.Day)" [class.active]="view === CalendarView.Day">
+              {{ 'events.day' | translate }}
+            </div>
+          </div>
+        </div>
+        <div class="is-flex-direction-column">
+          <div class="buttons events-actions-calendar">
+            <div class="button button-prev" mwlCalendarPreviousView [view]="(daysInWeek == 7 || view === CalendarView.Month) ? view : CalendarView.Day" [(viewDate)]="viewDate"
+              (viewDateChange)="closeOpenMonthViewDay()">
+              {{ 'events.previous' | translate }}
+            </div>
+            <div class="button button-now" mwlCalendarToday [(viewDate)]="viewDate">
+              {{ 'events.today' | translate }}
+            </div>
+            <div class="button button-next" mwlCalendarNextView [view]="(daysInWeek == 7 || view === CalendarView.Month) ? view : CalendarView.Day" [(viewDate)]="viewDate"
+              (viewDateChange)="closeOpenMonthViewDay()">
+              {{ 'events.next' | translate }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div [ngSwitch]="view" class="event-calendar">
+      <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events"
+      [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
+      (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)"
+      [locale]="selectedLanguage">
+      </mwl-calendar-month-view>
+      <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events"
+        [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)"
+        [locale]="selectedLanguage" class="calendar-week" [daysInWeek]="daysInWeek" [dayStartHour]="8"
+        [dayEndHour]="23">
+      </mwl-calendar-week-view>
+      <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events"
+        [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)"
+        (eventTimesChanged)="eventTimesChanged($event)" [locale]="selectedLanguage" [dayStartHour]="8"
+        [dayEndHour]="23">
+      </mwl-calendar-day-view>
+    </div>
+    <br><br>
+  </div>
+</section>

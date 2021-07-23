@@ -1,0 +1,31 @@
+<div class="banner">
+  <h2 class="banner-info-title subtitle has-text-white is-uppercase">
+    {{ 'home.info-title' | translate }}
+  </h2>
+  <h1 class="banner-title title is-bold has-text-white">
+    ProT System
+  </h1>
+  <h2 class="banner-info-subtitle subtitle has-text-white">
+    {{ 'home.info-subtitle' | translate }}
+  </h2>
+  <div class="banner-buttons">
+    <a class="button login-button has-text-white" (click)="openLogin()">
+      <i class="fas fa-sign-in-alt"></i>&nbsp;
+      <strong>{{ 'general.login' | translate }}</strong>
+    </a>
+    <a class="button signup-button" (click)="openRegister()">
+      <i class="fas fa-user-plus"></i>&nbsp;
+      <strong>{{ 'general.signup' | translate }}</strong>
+    </a>
+  </div>
+</div>
+<br><br>
+<section class="learn-system has-text-centered">
+  <h1 class="section-learn-title title is-uppercase">
+    {{ 'home.learn-system' | translate }}
+  </h1>
+  <img class="section-learn-video" src="../../assets/img/temp-img.png">
+</section>
+<app-calendar [selectedLanguage]="selectedLanguage"
+      [showType]="false" [showTitle]="true" [calendarType]="'week'">
+</app-calendar>

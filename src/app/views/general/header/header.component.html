@@ -1,0 +1,87 @@
+<nav class="navbar" role="navigation" aria-label="main navigation"
+  [ngClass]="{'navbar-strong': colorChange || path != ''}">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <img id="logo" src="../../../assets/img/white-logo2.png">
+    </a>
+    <a class="navbar-item" id="account-icon-mobile">
+      <div class="dropdown is-right" [ngClass]="{'is-active': activeAccount}">
+        <div class="dropdown-trigger">
+          <a class="nabar-item has-text-white" aria-haspopup="true"
+            aria-controls="log-dropdown" (click)="activeAccount=
+            !activeAccount">
+            <i class="fas fa-user-circle fa-2x"></i>
+          </a>
+        </div>
+        <div class="dropdown-menu" id="log-dropdown" role="menu"
+          [ngClass]="{'is-active': activeAccount}">
+          <div class="dropdown-content">
+            <a class="navbar-item" (click)="toLogin = true">
+              {{ 'general.login' | translate }}
+            </a>
+            <a class="navbar-item" (click)="toRegister = true">
+              {{ 'general.signup' | translate }}
+            </a>
+            <a class="navbar-item">
+
+            </a>
+          </div>
+        </div>
+      </div>
+    </a>
+    <a role="button" class="navbar-burger has-text-white"
+      aria-label="menu" aria-expanded="false" data-target="burger-navbar"
+      (click)="changeBurgerStatus()" [ngClass]="{'is-active': isActiveMenu}">
+      <i class="fas fa-bars"></i>
+    </a>
+  </div>
+
+  <div id="navbar-items" class="navbar-menu" [ngClass]="{'is-active':
+    isActiveMenu}">
+    <div class="navbar-end">
+      <a class="navbar-item" [ngClass]="{'is-active': path === ''}" href="/">
+        {{ 'header.home' | translate }}
+      </a>
+      <a class="navbar-item" [ngClass]="{'is-active': path === 'about'}"
+        href="about">
+        {{ 'header.about' | translate}}
+      </a>
+      <a class="navbar-item" [ngClass]="{'is-active': path === 'events'}"
+        href="events">
+        {{ 'header.events' | translate }}
+      </a>
+      <a class="navbar-item" [ngClass]="{'is-active': path === 'library'}"
+        href="library">
+        {{ 'header.library' | translate }}
+      </a>
+      <a class="navbar-item" [ngClass]="{'is-active': path === 'training'}">
+        {{ 'header.training' | translate }}
+      </a>
+      <a class="navbar-item has-dropdown is-hoverable" id="account-icon">
+        <a class="navbar-link is-arrowless has-text-white">
+          <i class="fas fa-user-circle fa-2x"></i>
+        </a>
+
+        <div class="navbar-dropdown is-right">
+          <a id="btn-login" class="navbar-item" (click)="toLogin = true">
+            {{ 'general.login' | translate }}
+          </a>
+          <a id="btn-register" class="navbar-item" (click)="toRegister = true">
+            {{ 'general.signup' | translate }}
+          </a>
+          <a class="navbar-item">
+
+          </a>
+        </div>
+      </a>
+    </div>
+  </div>
+</nav>
+<div class="modal" [ngClass]="{ 'is-active': toRegister }">
+  <app-register (toRegister)="setToRegister($event)"
+    (toLogin)="setToLogin($event)"></app-register>
+</div>
+<div class="modal" [ngClass]="{ 'is-active': toLogin }">
+  <app-login (toRegister)="setToRegister($event)"
+    (toLogin)="setToLogin($event)"></app-login>
+</div>

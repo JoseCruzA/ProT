@@ -1,0 +1,165 @@
+<section class="about-section">
+  <br><br><br><br>
+  <div class="card has-text-centered">
+    <header class="card-header about-section-title">
+      <h1 class="card-header-title title is-uppercase has-text-centered" *ngIf="selected === 'known'">
+        {{ 'header.about' | translate }}
+      </h1>
+      <h1 class="card-header-title title is-uppercase has-text-centered" *ngIf="selected === 'what-is'">
+        {{ 'about.what-is-title' | translate }}
+      </h1>
+      <h1 class="card-header-title title is-uppercase has-text-centered" *ngIf="selected === 'about'">
+        {{ 'about.invest-title' | translate }}
+      </h1>
+      <h1 class="card-header-title title is-uppercase has-text-centered" *ngIf="selected === 'system'">
+        {{ 'about.distribution-system-title' | translate }}
+      </h1>
+      <h1 class="card-header-title title is-uppercase has-text-centered" *ngIf="selected === 'partners'">
+        {{ 'about.partnership' | translate }}
+      </h1>
+      <h1 class="card-header-title title is-uppercase has-text-centered" *ngIf="selected === 'corporative'">
+        {{ 'about.corporative' | translate }}
+      </h1>
+      <h1 class="card-header-title title is-uppercase has-text-centered" *ngIf="selected === 'invest'">
+        {{ 'about.investments' | translate }}
+      </h1>
+      <h1 class="card-header-title title is-uppercase has-text-centered" *ngIf="selected === 'start'">
+        {{ 'about.start-us' | translate }}
+      </h1>
+      <h1 class="card-header-title title is-uppercase has-text-centered" *ngIf="selected === 'compensation'">
+        {{ 'about.compensation-title' | translate }}
+      </h1>
+      <h1 class="card-header-title title is-uppercase has-text-centered" *ngIf="selected === 'terms'">
+        {{ 'about.terms-cond' | translate }}
+      </h1>
+    </header>
+    <div class="card-content">
+      <div class="content">
+        <div id="known-section" *ngIf="selected === 'known'">
+          <video class="section-about-video" src="../../../assets/video/royal-presentation.mp4"
+            controls controlslist="nodownload" poster="../../../assets/img/poster.png">
+          </video>
+        </div>
+        <div id="what-is-section" *ngIf="selected === 'what-is'">
+          <div class="columns">
+            <div class="column is-two-fifths column-center">
+              <img id="office-img" src="../../assets/img/office.jpeg">
+            </div>
+            <div class="column has-text-white">
+              <strong class="title is-5 has-text-white">
+                {{ 'about.what-is-desc' | translate }}
+              </strong>
+              <br><br>
+              {{ 'about.distribution-system' | translate }}
+              <br><br>
+              {{ 'about.company-mission' | translate }}
+              <br><br>
+              {{ 'about.company-goal' | translate }}
+            </div>
+          </div>
+        </div>
+        <div class="about-section-info" *ngIf="selected === 'about'">
+          {{ getAboutText() }}
+          <p id="royal-invest" class="has-text-white"></p>
+        </div>
+        <div class="system-section" *ngIf="selected === 'system'">
+          <img class="only-img" src="../../assets/img/distribution-system.png">
+        </div>
+        <div class="partners-section" *ngIf="selected === 'partners'">
+          <img class="only-img" src="../../assets/img/partnership.png">
+        </div>
+        <div class="corporative-section" *ngIf="selected === 'corporative'">
+          <img class="only-img" src="../../assets/img/corporative.png">
+        </div>
+        <div class="invest-section" *ngIf="selected === 'invest'">
+          <div class="is-flex is-flex-direction-row slider-img-container">
+            <img id="slide-img-1" class="is-absolute slide-img is-active"
+              src="../../assets/img/investment-1.png" (click)="changeActiveImg($event)">
+            <img id="slide-img-4" class="is-absolute slide-img is-right"
+              src="../../assets/img/investment-5.png" (click)="changeActiveImg($event)">
+            <img id="slide-img-3" class="is-absolute slide-img is-right"
+              src="../../assets/img/investment-3.png" (click)="changeActiveImg($event)">
+            <img id="slide-img-2" class="is-absolute slide-img is-right"
+              src="../../assets/img/investment-2.png" (click)="changeActiveImg($event)">
+          </div>
+        </div>
+        <div class="start-section" *ngIf="selected === 'start'">
+          <img class="only-img" src="../../assets/img/start-with-us.png">
+        </div>
+        <div class="compensation-section" *ngIf="selected === 'compensation'">
+          <video class="section-about-video" src="../../assets/video/distribution-plan.mp4"
+            controls controlslist="nodownload" poster="../../assets/img/distribution-plan.png">
+          </video>
+        </div>
+        <div class="terms-section" *ngIf="selected === 'terms'">
+          <div class="is-flex is-flex-direction-row slider-img-container">
+            <img id="slide-img-1" class="is-absolute slide-img is-active"
+              src="../../assets/img/rewards.png" (click)="changeActiveImg($event)">
+            <img id="slide-img-2" class="is-absolute slide-img is-right"
+              src="../../assets/img/terms.png" (click)="changeActiveImg($event)">
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="card-footer">
+      <h1 class="card-footer-info title is-uppercase has-text-centered">
+        {{ 'about.details' | translate }}
+      </h1>
+    </footer>
+  </div>
+  <br><br>
+  <div class="tabs is-centered">
+    <ul>
+      <li [ngClass]="{'is-active': selected === 'known'}">
+        <a (click)="changeView('known')">
+          {{ 'about.known' | translate }}
+        </a>
+      </li>
+      <li [ngClass]="{'is-active': selected === 'what-is'}">
+        <a (click)="changeView('what-is')">
+          {{ 'about.what-is' | translate }}
+        </a>
+      </li>
+      <li [ngClass]="{'is-active': selected === 'about'}">
+        <a (click)="changeView('about')">
+          {{ 'about.about' | translate }}
+        </a>
+      </li>
+      <li [ngClass]="{'is-active': selected === 'system'}">
+        <a (click)="changeView('system')">
+          {{ 'about.system' | translate }}
+        </a>
+      </li>
+      <li [ngClass]="{'is-active': selected === 'partners'}">
+        <a (click)="changeView('partners')">
+          {{ 'about.partners' | translate }}
+        </a>
+      </li>
+      <li [ngClass]="{'is-active': selected === 'corporative'}">
+        <a (click)="changeView('corporative')">
+          {{ 'about.corporative' | translate }}
+        </a>
+      </li>
+      <li [ngClass]="{'is-active': selected === 'invest'}">
+        <a (click)="changeView('invest')">
+          {{ 'about.invest' | translate }}
+        </a>
+      </li>
+      <li [ngClass]="{'is-active': selected === 'start'}">
+        <a (click)="changeView('start')">
+          {{ 'about.start' | translate }}
+        </a>
+      </li>
+      <li [ngClass]="{'is-active': selected === 'compensation'}">
+        <a (click)="changeView('compensation')">
+          {{ 'about.compensation' | translate }}
+        </a>
+      </li>
+      <li [ngClass]="{'is-active': selected === 'terms'}">
+        <a (click)="changeView('terms')">
+          {{ 'about.terms' | translate }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
