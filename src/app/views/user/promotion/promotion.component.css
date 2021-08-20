@@ -1,0 +1,63 @@
+.field:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.column-left {
+  border-left: 1px solid #009975;
+}
+
+.column-right {
+  border-right: 1px solid #009975;
+}
+
+.button-submit {
+  font-family: "Raleway-SemiBold", sans-serif;
+  border-radius: 10vw;
+  background: linear-gradient(290deg, #17E5B5 0%, #004D3B 92%);
+  color: #FFFFFF;
+}
+
+.button-submit:hover {
+  background: #FFFFFF;
+  color: #000000;
+}
+
+.ng-touched.ng-invalid {
+  border-color: red;
+}
+
+input.input:focus {
+  border-color: #000000;
+}
+
+.box {
+  background-color: #808080;
+  color: #FFFFFF;
+  text-align: justify;
+}
+
+.font-bold {
+  font-family: "Raleway-Bold", sans-serif;
+  color: #FFFFFF;
+}
+
+.font-semibold {
+  font-family: "Raleway-SemiBold", sans-serif;
+}
+
+.font-light {
+  font-family: "Raleway-Light", sans-serif;
+  font-size: 15px;
+}
+
+@media screen and (max-width: 730px) {
+  .column-left {
+    border-top: 1px solid #009975;
+    border-left: none;
+  }
+
+  .column-right {
+    border-bottom: 1px solid #009975;
+    border-right: none;
+  }
+}

@@ -1,0 +1,234 @@
+<div class="modal-background">
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title has-text-centered" *ngIf="!isUpdate">
+        {{ 'office.users.create' | translate }}
+      </p>
+      <p class="modal-card-title has-text-centered" *ngIf="isUpdate">
+        {{ 'office.users.update' | translate }}
+      </p>
+      <button class="delete" aria-label="close" (click)="closeModal()" close></button>
+    </header>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <section class="modal-card-body">
+        <figure class="image is-150x150 img-round principal-image">
+          <img [src]="userSelectedT.image" alt="Placeholder image" *ngIf="userSelectedT?.image">
+          <img src="../../../assets/img/user-default.png" alt="Placeholder
+            image" *ngIf="!userSelectedT?.image" id="img-tmp">
+          <label for="new-user-image">
+            <img src="../../../assets/img/change-image.png"
+              class="img-change">
+          </label>
+          <input type="file" accept="image/*" name="user-image"
+            id="new-user-image" (change)="previewImage($event)">
+        </figure>
+        <div class="columns">
+          <div class="field column">
+            <label class="label">{{ 'general.firstname' | translate }}</label>
+            <p class="control">
+              <input class="input" type="text" name="firstname" id="new-firstname" formControlName="firstname" required>
+            </p>
+          </div>
+          <div class="field column">
+            <label class="label">{{ 'general.lastname' | translate }}</label>
+            <p class="control">
+              <input class="input" type="text" name="lastname" id="new-lastname"
+                formControlName="lastname">
+            </p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="field column">
+            <label class="label">{{ 'general.username' | translate }}</label>
+            <p class="control">
+              <input class="input" type="text" name="username" id="new-username"
+                formControlName="username" required>
+            </p>
+          </div>
+          <div class="field column">
+            <label class="label">{{ 'general.email' | translate }}</label>
+            <p class="control">
+              <input class="input" type="email" name="email" id="new-email"
+                formControlName="email" required>
+            </p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="field column">
+            <label class="label">{{ 'general.country' | translate }}</label>
+            <div class="control is-expanded">
+              <div class="select is-fullwidth select-search">
+                <select iname="country" id="new-country"
+                  formControlName="country"
+                  (change)="onSelectCountry()" required>
+                  <option selected disabled>{{ 'general.sel-country' | translate
+                    }}</option>
+                  <option [id]="country.callingCodes[0]" *ngFor="let country of
+                    countries"
+                    [value]="country.translations[selectedLanguage] ?
+                    country.translations[selectedLanguage] : country.name">
+                    {{ country.translations[selectedLanguage] ?
+                    country.translations[selectedLanguage] : country.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="field column">
+            <label class="label">{{ 'general.phone' | translate }}</label>
+            <div class="field has-addons">
+              <p class="control country-code-btn">
+                <a class="button is-static">
+                  <div *ngIf="flag != ''">
+                    <img [src]="flag" width="20">
+                    +{{ this.userForm.value.code }}
+                  </div>
+                </a>
+              </p>
+              <p class="control">
+                <input class="input" type="number" name="phone" id="new-phone"
+                  formControlName="phone">
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="field column">
+            <label class="label">{{ 'general.password' | translate }}</label>
+            <p class="control">
+              <input class="input" type="password" name="password"
+                id="new-password" formControlName="password" required>
+            </p>
+          </div>
+          <div class="field column">
+            <label class="label">{{ 'general.re-pass' | translate }}</label>
+            <p class="control">
+              <input class="input" type="password" name="re-password"
+                id="new-re-password" formControlName="rePassword" required>
+            </p>
+          </div>
+        </div>
+        <div class="notification is-danger" *ngIf="(f.firstname.invalid && (f.firstname.dirty || f.firstname.touched))
+            || (f.username.invalid && (f.username.dirty || f.username.touched)) || f.username.errors?.minlength || f.username.errors?.pattern
+            || (f.email.invalid && (f.email.dirty || f.email.touched)) || f.email.errors?.email || (f.country.invalid && (f.country.dirty || f.country.touched))
+            || (f.password.invalid && (f.password.dirty || f.password.touched)) || (f.rePassword.invalid && (f.rePassword.dirty || f.rePassword.touched))
+            || f.password.value != f.rePassword.value || f.password.errors?.pattern
+            || f.password.errors?.minlength || this.errors.length > 0">
+          <ul>
+            <li *ngIf="f.firstname?.invalid && (f.firstname.dirty || f.firstname.touched)">
+              {{ 'errors.firstname-required' | translate }}
+            </li>
+            <li *ngIf="f.username.invalid && (f.username.dirty || f.username.touched)">
+              {{ 'errors.username-required' | translate }}
+            </li>
+            <li *ngIf="f.username.errors?.pattern">
+              {{ 'errors.username-invalid' | translate }}
+            </li>
+            <li *ngIf="f.username.errors?.minlength">
+              {{ 'errors.username-lenght' | translate }}
+            </li>
+            <li *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)">
+              {{ 'errors.email-required' | translate }}
+            </li>
+            <li *ngIf="f.email.errors?.email">
+              {{ 'errors.email-invalid' | translate }}
+            </li>
+            <li *ngIf="f.country.invalid && (f.country.dirty || f.country.touched)">
+              {{ 'errors.country-required' | translate }}
+            </li>
+            <li *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)">
+              {{ 'errors.pwd-required' | translate }}
+            </li>
+            <li *ngIf="f.rePassword.invalid && (f.rePassword.dirty || f.rePassword.touched)">
+              {{ 'errors.pwd-confirm-required' | translate }}
+            </li>
+            <li *ngIf="f.password.value != f.rePassword.value">
+              {{ 'errors.pwd-no-match' | translate }}
+            </li>
+            <li *ngIf="f.password.errors?.minlenght">
+              {{ 'errors.pwd-length' | translate }}
+            </li>
+            <li *ngIf="f.password.errors?.pattern">
+              {{ 'errors.pwd-match' | translate }}
+            </li>
+            <li *ngFor="let error of errors">
+              {{ error | translate }}
+            </li>
+          </ul>
+        </div>
+        <h2 class="subtitle is-4 has-text-centered" *ngIf="canAddRoles || canDeleteRoles">{{ 'office.users.roles' | translate }}</h2>
+        <div class="columns" *ngIf="canAddRoles || canDeleteRoles">
+          <div class="column">
+            <h3 class="subtitle is-4 has-text-centered">{{ 'office.users.available' | translate }}</h3>
+            <div class="columns" *ngFor="let role of availableRoles">
+              <div class="column has-text-centered is-align-self-center">
+                <label>{{ role.value }}</label>
+              </div>
+              <div class="column" *ngIf="canAddRoles">
+                <a class="button" (click)="addRole(role)">
+                  <i class="fas fa-plus-circle"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <h3 class="subtitle is-4 has-text-centered">{{ 'office.users.current' | translate }}</h3>
+            <div class="columns has-text-centered" *ngFor="let role of actualRoles">
+              <div class="column has-text-centered is-align-self-center">
+                <label>{{ role.value }}</label>
+              </div>
+              <div class="column" *ngIf="canDeleteRoles">
+                <a class="button" (click)="deleteRole(role)">
+                  <i class="fas fa-minus-circle"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2 class="subtitle is-4 has-text-centered" *ngIf="canAddFunction || canDeleteFunction">{{ 'office.users.functions' | translate }}</h2>
+        <div class="columns" *ngIf="canAddFunction || canDeleteFunction">
+          <div class="column">
+            <h3 class="subtitle is-4 has-text-centered">{{ 'office.users.available' | translate }}</h3>
+            <div class="columns" *ngFor="let func of availableFunctions">
+              <div class="column has-text-centered is-align-self-center">
+                <label>{{ func.value }}</label>
+              </div>
+              <div class="column" *ngIf="canAddFunction">
+                <a class="button" (click)="addFunction(func)">
+                  <i class="fas fa-plus-circle"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <h3 class="subtitle is-4 has-text-centered">{{ 'office.users.current' | translate }}</h3>
+            <div class="columns" *ngFor="let func of actualFunctions">
+              <div class="column has-text-centered is-align-self-center">
+                <label>{{ func.value }}</label>
+              </div>
+              <div class="column" *ngIf="canDeleteFunction">
+                <a class="button" (click)="deleteFunction(func)">
+                  <i class="fas fa-minus-circle"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button button-submit" type="submit"
+          [disabled]="userForm.invalid" *ngIf="!isUpdate">
+          {{ 'office.users.create' | translate }}
+        </button>
+        <button class="button button-submit" type="submit"
+          [disabled]="userForm.invalid" *ngIf="isUpdate">
+          {{ 'office.users.update' | translate }}
+        </button>
+        <button class="button button-reset" type="reset"
+          (click)="closeModal()">
+          {{ 'general.cancel' | translate }}
+        </button>
+      </footer>
+    </form>
+  </div>
+</div>

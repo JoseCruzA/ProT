@@ -1,0 +1,48 @@
+.modal-card-foot .button {
+  font-family: "Raleway-SemiBold", sans-serif;
+  border-radius: 10vw;
+}
+
+.button-submit {
+  display: block;
+  margin-left: auto;
+  background: linear-gradient(290deg, #17E5B5 0%, #004D3B 92%);
+  color: #FFFFFF;
+}
+
+.button-submit:hover {
+  background: #FFFFFF;
+  color: #000000;
+}
+
+.button-reset {
+  display: block;
+  margin-right: auto;
+  background: #FFFFFF;
+  color: #000000;
+}
+
+.button-reset:hover {
+  background: linear-gradient(290deg, #17E5B5 0%, #004D3B 92%);
+  color: #FFFFFF;
+}
+
+.modal-card-title {
+  font-family: "Raleway-Bold", sans-serif;
+}
+
+form {
+  font-family: "Raleway", sans-serif;
+}
+
+.ng-touched.ng-invalid {
+  border-color: red;
+}
+
+input.input:focus {
+  border-color: #000000;
+}
+
+
+
+

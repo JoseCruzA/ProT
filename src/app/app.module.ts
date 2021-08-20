@@ -20,6 +20,21 @@ import { LoginComponent } from './views/modal/login/login.component';
 import { RegisterComponent } from './views/modal/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserComponent } from './views/user/user.component';
+import { ProfileComponent } from './views/user/profile/profile.component';
+import { PromotionComponent } from './views/user/promotion/promotion.component';
+import { CampaignComponent } from './views/user/campaign/campaign.component';
+import { ReportsComponent } from './views/user/reports/reports.component';
+import { OfficeGuard } from './guards/office.guard';
+import { UsersComponent } from './views/user/users/users.component';
+import { CreateOrUpdateComponent } from './views/user/users/create-or-update/create-or-update.component';
+import { DeleteComponent } from './views/user/users/delete/delete.component';
+import { LandingComponent } from './views/user/landing/landing.component';
+import { WhatsappComponent } from './views/general/whatsapp/whatsapp.component';
+import { CreateCampaignComponent } from './views/user/campaign/create-campaign/create-campaign.component';
+import { DeleteCampaignComponent } from './views/user/campaign/delete-campaign/delete-campaign.component';
+import { DataTablesModule } from 'angular-datatables';
+import * as $ from 'jquery';
+
 
 /**
  * Function that generate the translate loader and
@@ -43,7 +58,18 @@ export function rootLoaderFactory(http: HttpClient) {
     CalendarComponent,
     LoginComponent,
     RegisterComponent,
-    UserComponent
+    UserComponent,
+    ProfileComponent,
+    PromotionComponent,
+    CampaignComponent,
+    ReportsComponent,
+    UsersComponent,
+    CreateOrUpdateComponent,
+    DeleteComponent,
+    LandingComponent,
+    WhatsappComponent,
+    CreateCampaignComponent,
+    DeleteCampaignComponent
   ],
   imports: [
     BrowserModule,
@@ -63,10 +89,12 @@ export function rootLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     PdfViewerModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DataTablesModule
   ],
   providers: [
-    Title
+    Title,
+    OfficeGuard
   ],
   bootstrap: [AppComponent]
 })

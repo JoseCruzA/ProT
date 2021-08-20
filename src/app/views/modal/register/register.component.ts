@@ -26,6 +26,7 @@ export class RegisterComponent implements OnInit {
   selectedLanguage!: string;
   register!: FormGroup;
   token!: string;
+  errors: string[] = [];
 
   constructor(private countryService: CountryService, private formGroup: FormBuilder, private userService: UserService, private router: Router) {
     this.register = this.formGroup.group({
@@ -35,6 +36,7 @@ export class RegisterComponent implements OnInit {
       lastname: "",
       username: new FormControl("", [
         Validators.required,
+        Validators.pattern(/^[\S]+([\S]+[\S]+)*$/),
         Validators.minLength(4)
       ]),
       email: new FormControl("", [
@@ -48,6 +50,7 @@ export class RegisterComponent implements OnInit {
       ]),
       password: new FormControl("", [
         Validators.required,
+        Validators.pattern(/((?=.*[0-9]+)(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[$&+,:;=?@#|'<>.^*()%!-]+)).{8,}/),
         Validators.minLength(8)
       ]),
       rePassword: new FormControl("", [
@@ -65,6 +68,15 @@ export class RegisterComponent implements OnInit {
     this.selectedLanguage = lang.split("-")[0];
 
     this.getCountriesData();
+  }
+
+  /**
+   * Method that get the form controls
+   *
+   * @return {*} the controls of the form
+   */
+  get f(): { [key: string]: AbstractControl } {
+    return this.register.controls;
   }
 
   /**
@@ -125,13 +137,27 @@ export class RegisterComponent implements OnInit {
    * Method for send the form data to register the user
    */
   onSubmit() {
+    this.errors = [];
     this.userService.saveUser(this.register.value).subscribe((response) => {
-      this.token = response.token;
       this.register.reset();
       this.flag = "";
-      this.router.navigate(["/office"]);
+      this.closeModal();
+      window.location.replace('/office');
     }, (error) => {
-      console.log(error);
+      if (error.error.code && error.error.code == 11000) {
+        let key = Object.keys(error.error.keyValue)[0]
+        let duplicate = key.includes('.') ? key.split('.')[1] : key;
+        if (!this.errors.includes(`errors.exist-${duplicate}`)) {
+          this.errors.push(`errors.exist-${duplicate}`);
+        }
+      } else if (error.error.errors) {
+        for (let err of Object.keys(error.error.errors)) {
+          let required = err.split('.')[1];
+          if (!this.errors.includes(`errors.${required ? required : err}-required`)) {
+            this.errors.push(`errors.${required ? required : err}-required`);
+          }
+        }
+      }
     });
   }
 

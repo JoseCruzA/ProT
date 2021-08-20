@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_PATH: "http://localhost:4000/api/"
+  API_PATH: "https://api.protsystem.club/api/"
 };
 
 /*

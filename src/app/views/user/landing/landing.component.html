@@ -1,0 +1,114 @@
+<section class="user-info">
+  <div class="about-me columns">
+    <figure class="image img-round principal-image column is-one-third">
+      <img [src]="user.image" alt="Placeholder image" *ngIf="user?.image">
+      <img src="../../../../assets/img/user-default.png" alt="Placeholder image" *ngIf="!user?.image">
+    </figure>
+    <div id="about-me-info" class="has-text-white column">
+      {{ 'landing.greating' | translate }} {{ user?.name?.firstname }} {{ user?.name?.lastname }}. {{ 'landing.greating-info' | translate }}
+    </div>
+  </div>
+</section>
+<section class="about-royal has-text-centered">
+  <h4 class="title is-4 is-uppercase has-text-black">
+    {{ 'landing.action-called' | translate }}
+  </h4>
+  <h1 class="title is-2 is-uppercase">
+    {{ 'landing.be-part' | translate }}
+    <label class="see-here">
+      {{ 'landing.new-era' | translate }}.
+    </label>
+  </h1>
+  <div class="video-explanation">
+    <video class="section-about-video" src="../../../../assets/video/royal-presentation.mp4"
+      controls controlslist="nodownload" poster="../../../../assets/img/poster.png">
+    </video>
+  </div>
+  <h1 class="title is-2 is-uppercase">
+    {{ 'about.invest-title' | translate }}
+  </h1>
+  <img class="img" src="../../assets/img/office.jpeg">
+  <div class="info-royal ml-16"></div>
+  <div class="info-royal-about ml-16"></div>
+  <h1 id="what-do-royal" class="title is-4 is-uppercase">
+    {{ 'landing.what-do' | translate }}
+  </h1>
+  <div class="ml-16 what-do-list"></div>
+  <br>
+  <div class="ml-16 package-created"></div>
+  <div class="ml-16">
+    {{ 'about.pay-way' | translate }}
+  </div>
+</section>
+<div class="whatsapp-button has-text-centered">
+  <app-whatsapp [user]="user"></app-whatsapp>
+</div>
+<br>
+<section class="what-royal-do has-text-centered">
+  <img class="img" src="../../../../assets/img/what-do.png"/>
+  <h1 class="title is-2 is-uppercase">
+    {{ 'about.what-is-title' | translate }}
+  </h1>
+  <h4 class="title is-4 has-text-black">
+    {{ 'about.what-is-desc' | translate }}
+  </h4>
+  <div class="ml-16">
+    <strong>
+      {{ 'landing.royal-figure' | translate }}
+    </strong>
+    <div>
+      {{ 'about.distribution-system' | translate }}
+    </div>
+    <div>
+      {{ 'about.company-mission' | translate }}
+    </div>
+  </div>
+  <h1 class="title is-2">
+    {{ 'about.partnership' | translate }}
+  </h1>
+  <img class="img" src="../../../../assets/img/partnership.png"/>
+</section>
+<div class="whatsapp-button has-text-centered">
+  <div class="title is-3 has-text-white">
+    {{ 'landing.more-info' | translate }}
+  </div>
+  <div class="contact-whatsapp title is-4 has-text-white"></div>
+  <app-whatsapp [user]="user"></app-whatsapp>
+</div>
+<br>
+<section class="royal-compensation has-text-centered">
+  <h1 class="title is-2">
+    {{ 'landing.invest-us' | translate }}
+  </h1>
+  <img class="img" src="../../../../assets/img/returns.png"/>
+  <img class="img" src="../../../../assets/img/investment-2.png"/>
+  <img class="img" src="../../../../assets/img/investment-3.png"/>
+  <img class="img" src="../../../../assets/img/investment-5.png"/>
+  <img class="img" src="../../../../assets/img/start-with-us.png"/>
+  <br><br>
+  <app-whatsapp [user]="user"></app-whatsapp>
+  <br>
+  <h1 class="title is-2 is-uppercase">
+    {{ 'about.compensation-title' | translate }}
+  </h1>
+  <div class="video-explanation">
+    <video class="section-about-video" src="../../../../assets/video/distribution-plan.mp4"
+      controls controlslist="nodownload" poster="../../../../assets/img/distribution-plan.png">
+    </video>
+  </div>
+  <br>
+  <app-whatsapp [user]="user"></app-whatsapp>
+  <br>
+</section>
+<br>
+<section class="landing-footer has-text-white has-text-centered">
+  <h1 class="title is-3 has-text-white">
+    {{ 'landing.allow-help' | translate }}
+  </h1>
+  <div>
+    {{ 'landing.disclaimer' | translate }}
+  </div>
+  <div>
+    {{ 'landing.notice' | translate }}
+  </div>
+</section>

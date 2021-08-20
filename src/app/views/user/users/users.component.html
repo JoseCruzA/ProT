@@ -1,0 +1,52 @@
+<div class="table-container">
+  <table datatable [dtOptions]="options" class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>{{ 'general.username' | translate }}</th>
+        <th>{{ 'office.users.name' | translate }}</th>
+        <th>{{ 'general.country' | translate }}</th>
+        <th>{{ 'general.phone' | translate }}</th>
+        <th>{{ 'general.email' | translate }}</th>
+        <th *ngIf="canUpdate">{{ 'office.users.edit' | translate }}</th>
+        <th *ngIf="canDelete">{{ 'office.users.delete' | translate }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.username }}</td>
+        <td>{{ user.name.firstname }} {{ user.name.lastname }}</td>
+        <td>{{ user.country }}</td>
+        <td>(+{{ user.contact.phone.code }}) {{ user.contact.phone.number }}</td>
+        <td>{{ user.contact.email }}</td>
+        <td *ngIf="canUpdate">
+          <a class="button table-button" (click)="selectUser(user, 'edit')">
+            <i class="fas fa-user-edit"></i>
+          </a>
+        </td>
+        <td *ngIf="canDelete">
+          <a class="button table-button" (click)="selectUser(user, 'delete')">
+            <i class="fas fa-user-times"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<a class="button btn-submit" (click)="createOrUpdate = true; create = true;">
+  <i class="fas fa-user-plus"></i>&nbsp;
+  <strong>{{ 'office.users.create' | translate }}</strong>
+</a>
+<section id="modals-section">
+  <div id="update-modal" class="modal" [ngClass]="{ 'is-active': createOrUpdate }">
+    <app-create-or-update [user]="userT" [token]="tokenT" [userSelected]="userSelected"
+          [countries]="countriesT" [selectedLanguage]="selectedLanguage" [create]="create"
+          (close)="close($event)" (refresh)="refreshUsers($event)">
+    </app-create-or-update>
+  </div>
+  <div id="delete-modal" class="modal" [ngClass]="{ 'is-active': delete }">
+    <app-delete [user]="userSelected" [selectedLanguage]="selectedLanguage"
+          (close)="close($event)" (deleteUser)="deleteUser($event)">
+    </app-delete>
+  </div>
+</section>

@@ -16,14 +16,17 @@
         <div class="dropdown-menu" id="log-dropdown" role="menu"
           [ngClass]="{'is-active': activeAccount}">
           <div class="dropdown-content">
-            <a class="navbar-item" (click)="toLogin = true">
+            <a id="btn-login" class="navbar-item" (click)="toLogin = true" *ngIf="token == null">
               {{ 'general.login' | translate }}
             </a>
-            <a class="navbar-item" (click)="toRegister = true">
+            <a id="btn-register" class="navbar-item" (click)="toRegister = true" *ngIf="token == null">
               {{ 'general.signup' | translate }}
             </a>
-            <a class="navbar-item">
-
+            <a id="btn-office" class="navbar-item" href="/office" *ngIf="token != null">
+              {{ 'general.office' | translate }}
+            </a>
+            <a id="btn-logout" class="navbar-item" (click)="logout()" *ngIf="token != null">
+              {{ 'general.logout' | translate }}
             </a>
           </div>
         </div>
@@ -50,27 +53,30 @@
         href="events">
         {{ 'header.events' | translate }}
       </a>
-      <a class="navbar-item" [ngClass]="{'is-active': path === 'library'}"
+      <!--<a class="navbar-item" [ngClass]="{'is-active': path === 'library'}"
         href="library">
         {{ 'header.library' | translate }}
-      </a>
-      <a class="navbar-item" [ngClass]="{'is-active': path === 'training'}">
+      </a>-->
+      <!--<a class="navbar-item" [ngClass]="{'is-active': path === 'training'}">
         {{ 'header.training' | translate }}
-      </a>
+      </a>-->
       <a class="navbar-item has-dropdown is-hoverable" id="account-icon">
         <a class="navbar-link is-arrowless has-text-white">
           <i class="fas fa-user-circle fa-2x"></i>
         </a>
 
         <div class="navbar-dropdown is-right">
-          <a id="btn-login" class="navbar-item" (click)="toLogin = true">
+          <a id="btn-login" class="navbar-item" (click)="toLogin = true" *ngIf="token == null">
             {{ 'general.login' | translate }}
           </a>
-          <a id="btn-register" class="navbar-item" (click)="toRegister = true">
+          <a id="btn-register" class="navbar-item" (click)="toRegister = true" *ngIf="token == null">
             {{ 'general.signup' | translate }}
           </a>
-          <a class="navbar-item">
-
+          <a id="btn-office" class="navbar-item" href="/office" *ngIf="token != null">
+            {{ 'general.office' | translate }}
+          </a>
+          <a id="btn-logout" class="navbar-item" (click)="logout()" *ngIf="token != null">
+            {{ 'general.logout' | translate }}
           </a>
         </div>
       </a>

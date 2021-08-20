@@ -10,10 +10,10 @@
       <section class="modal-card-body">
         <div class="columns">
           <div class="field column">
-            <label class="label">{{ 'general.firstname' | translate }}</label>
+            <label class="label">{{ 'general.firstname' | translate }} *</label>
             <p class="control">
               <input class="input" type="text" name="firstname" id="firstname"
-                formControlName="firstname">
+                formControlName="firstname" required>
             </p>
           </div>
           <div class="field column">
@@ -26,27 +26,27 @@
         </div>
         <div class="columns">
           <div class="field column">
-            <label class="label">{{ 'general.username' | translate }}</label>
+            <label class="label">{{ 'general.username' | translate }} *</label>
             <p class="control">
               <input class="input" type="text" name="username" id="username"
-                formControlName="username">
+                formControlName="username" required>
             </p>
           </div>
           <div class="field column">
-            <label class="label">{{ 'general.email' | translate }}</label>
+            <label class="label">{{ 'general.email' | translate }} *</label>
             <p class="control">
               <input class="input" type="email" name="email" id="email"
-                formControlName="email">
+                formControlName="email" required>
             </p>
           </div>
         </div>
         <div class="columns">
           <div class="field column">
-            <label class="label">{{ 'general.country' | translate }}</label>
+            <label class="label">{{ 'general.country' | translate }} *</label>
             <div class="control is-expanded">
               <div class="select is-fullwidth select-search">
                 <select iname="country" id="country" formControlName="country"
-                  (change)="onSelectCountry()">
+                  (change)="onSelectCountry()" required>
                   <option selected disabled>{{ 'general.sel-country' | translate }}</option>
                   <option [id]="country.callingCodes[0]" *ngFor="let country of
                     countries"
@@ -79,17 +79,17 @@
         </div>
         <div class="columns">
           <div class="field column">
-            <label class="label">{{ 'general.password' | translate }}</label>
+            <label class="label">{{ 'general.password' | translate }} *</label>
             <p class="control">
               <input class="input" type="password" name="password"
-                id="password" formControlName="password">
+                id="password" formControlName="password" required>
             </p>
           </div>
           <div class="field column">
-            <label class="label">{{ 'general.re-pass' | translate }}</label>
+            <label class="label">{{ 'general.re-pass' | translate }} *</label>
             <p class="control">
               <input class="input" type="password" name="re-password"
-                id="re-password" formControlName="rePassword">
+                id="re-password" formControlName="rePassword" required>
             </p>
           </div>
         </div>
@@ -106,6 +106,57 @@
             {{ 'general.login' | translate }}
           </a>
         </p>
+        <div class="notification is-danger" *ngIf="(f.firstname.invalid && (f.firstname.dirty || f.firstname.touched))
+            || (f.username.invalid && (f.username.dirty || f.username.touched)) || f.username.errors?.minlength || f.username.errors?.pattern
+            || (f.email.invalid && (f.email.dirty || f.email.touched)) || f.email.errors?.email || (f.country.invalid && (f.country.dirty || f.country.touched))
+            || (f.password.invalid && (f.password.dirty || f.password.touched)) || (f.rePassword.invalid && (f.rePassword.dirty || f.rePassword.touched))
+            || f.password.value != f.rePassword.value || f.password.errors?.pattern
+            || (f.terms.invalid && (f.terms.dirty || f.terms.touched)) || f.password.errors?.minlength || this.errors.length > 0">
+          <ul>
+            <li *ngIf="f.firstname.invalid && (f.firstname.dirty || f.firstname.touched)">
+              ° {{ 'errors.firstname-required' | translate }}
+            </li>
+            <li *ngIf="f.username.invalid && (f.username.dirty || f.username.touched)">
+              ° {{ 'errors.username-required' | translate }}
+            </li>
+            <li *ngIf="f.username.errors?.pattern">
+              ° {{ 'errors.username-invalid' | translate }}
+            </li>
+            <li *ngIf="f.username.errors?.minlength">
+              ° {{ 'errors.username-lenght' | translate }}
+            </li>
+            <li *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)">
+              ° {{ 'errors.email-required' | translate }}
+            </li>
+            <li *ngIf="f.email.errors?.email">
+              ° {{ 'errors.email-invalid' | translate }}
+            </li>
+            <li *ngIf="f.country.invalid && (f.country.dirty || f.country.touched)">
+              ° {{ 'errors.country-required' | translate }}
+            </li>
+            <li *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)">
+              ° {{ 'errors.pwd-required' | translate }}
+            </li>
+            <li *ngIf="f.rePassword.invalid && (f.rePassword.dirty || f.rePassword.touched)">
+              ° {{ 'errors.pwd-confirm-required' | translate }}
+            </li>
+            <li *ngIf="f.password.value != f.rePassword.value">
+              ° {{ 'errors.pwd-no-match' | translate }}
+            </li>
+            <li *ngIf="f.password.errors?.minlenght">
+              ° {{ 'errors.pwd-length' | translate }}
+            </li>
+            <li *ngIf="f.password.errors?.pattern">
+              ° {{ 'errors.pwd-match' | translate }}
+            </li>
+            <li *ngIf="f.terms.invalid && (f.terms.dirty || f.terms.touched)">
+              ° {{ 'errors.terms-accept' | translate }}
+            </li>
+            <li *ngFor="let error of errors">
+              ° {{ error | translate }}
+            </li>
+          </ul>
+        </div>
       </section>
       <footer class="modal-card-foot">
         <button class="button button-submit" type="submit" [disabled]="register.invalid">

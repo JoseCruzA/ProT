@@ -1,5 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -21,14 +23,18 @@ export class HeaderComponent implements OnInit {
   activeAccount: boolean = false;
   toRegister: boolean = false;
   toLogin: boolean = false;
+  token!: string;
 
-  constructor(private location : Location) {
+  constructor(private location : Location, private authService: AuthService, private router: Router) {
     this.isActiveMenu = false;
     this.colorChange = false;
   }
 
   ngOnInit(): void {
     this.path = this.location.path().replace("/", "");
+    this.authService.validateLogin().subscribe((response: any) => {
+      this.token = response;
+    });
   }
 
   /**
@@ -67,6 +73,21 @@ export class HeaderComponent implements OnInit {
   setToLogin(value: boolean) {
     this.toRegister = false;
     this.toLogin = value;
+  }
+
+  /**
+   * Method for get the user logout
+   */
+  logout() {
+    this.authService.getLogout(this.token).subscribe((response: any) => {
+      if (this.router.url.includes('/office')) {
+        window.location.replace('/');
+      } else {
+        window.location.reload();
+      }
+    }, (error: any) => {
+      console.log(error);
+    });
   }
 
 }

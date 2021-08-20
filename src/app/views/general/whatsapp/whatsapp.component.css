@@ -1,0 +1,52 @@
+.button {
+  font-family: "Raleway", sans-serif;
+  margin: 0 auto;
+  width: fit-content;
+  height: 90px;
+  padding: 0;
+  border: none;
+  border-radius: 20px;
+  filter: drop-shadow(2px 4px 6px #000000);
+  transform: scale(1);
+  animation: clickme 2s infinite;
+}
+
+img {
+  filter: brightness(0) invert(1);
+  width: 50px;
+}
+
+.whatsapp-icon {
+  background-color: #189D0E;
+}
+
+.is-one-third {
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+.is-one-third, .is-two-thirds {
+  width: auto;
+  height: 100%;
+}
+
+.title, .subtitle {
+  margin: 0 !important;
+}
+
+@keyframes clickme {
+  0% {
+      transform: scale(0.9);
+      box-shadow: 0 0 0 0 rgba(24, 157, 14, 0.7);
+  }
+
+  70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba(24, 157, 14, 0);
+  }
+
+  100% {
+      transform: scale(0.9);
+      box-shadow: 0 0 0 0 rgba(24, 157, 14, 0);
+  }
+}

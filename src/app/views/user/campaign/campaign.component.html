@@ -1,0 +1,38 @@
+<div class="table-container">
+  <table datatable [dtOptions]="options" class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>{{ 'office.campaign-name' | translate }}</th>
+        <th>{{ 'office.campaign-visits' | translate }}</th>
+        <th>{{ 'office.users.delete' | translate }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let campaign of userT.campaign">
+        <td>{{ campaign.name }}</td>
+        <td>{{ campaign.visits }}</td>
+        <td>
+          <a class="button table-button" (click)="selectCampaign(campaign)">
+            <i class="fas fa-backspace"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<a class="button btn-submit" (click)="create = true">
+  <i class="fas fa-plus-circle"></i>&nbsp;
+  <strong>{{ 'office.create-campaign' | translate }}</strong>
+</a>
+<section id="modals-section">
+  <div id="create-campaign-modal" class="modal" [ngClass]="{ 'is-active': create }">
+    <app-create-campaign [token]="tokenT" [selectedLanguage]="selectedLanguage" (close)="close($event)">
+    </app-create-campaign>
+  </div>
+  <div id="delete-campaign-modal" class="modal" [ngClass]="{ 'is-active': delete }">
+    <app-delete-campaign [campaign]="campaign" [selectedLanguage]="selectedLanguage"
+      (close)="close($event)" (deleteCampaign)="deleteCampaign($event)">
+    </app-delete-campaign>
+  </div>
+</section>

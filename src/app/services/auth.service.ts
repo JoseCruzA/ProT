@@ -6,6 +6,12 @@ import { HashMap } from '../interfaces/HashMap.interface';
 import { User } from '../models/user.model';
 
 const uri = environment.API_PATH;
+const httpOtions = {
+  withCredentials: true,
+  headers: new HttpHeaders({
+    "content-type": "application/json"
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -28,30 +34,47 @@ export class AuthService {
    * @returns
    */
   login(user: any): Observable<HashMap> {
-    return this.http.post<HashMap>(`${uri}auth/login`, user, {
+    return this.http.post<HashMap>(`${uri}auth/login`, user, httpOtions);
+  }
+
+  /**
+   * Function that validate if the user are logged
+   *
+   * @returns { HashMap } the user token and info
+   */
+  validateLogin(): Observable<HashMap> {
+    return this.http.post<HashMap>(`${uri}auth/refresh_token`, "", httpOtions);
+  }
+
+  /**
+   * Funtion that get the logged user info
+   *
+   * @param {string} token the acces token for the user
+   * @returns {User} The logged user info
+   */
+  getLoggedUser(token: string): Observable<User> {
+    return this.http.get<User>(`${uri}/auth/user`, {
       withCredentials: true,
       headers: new HttpHeaders({
+        "x-access-token": token,
         "content-type": "application/json"
       })
     });
   }
 
-  validateLogin(): HashMap {
-    let data: HashMap = this.http.post<HashMap>(`${uri}auth/refresh_token`, "", {
+  /**
+   * Method for generate a logout
+   *
+   * @param {string} token the access token for the user
+   * @returns
+   */
+  getLogout(token: string) {
+    return this.http.get(`${uri}auth/logout`, {
+      withCredentials: true,
       headers: new HttpHeaders({
+        "x-access-token": token,
         "content-type": "application/json"
       })
     });
-
-    let user = this.http.get<User>(`${uri}users/getUser`, {
-      headers: new HttpHeaders({
-        "content-type": "application/json",
-        "x-access-token": JSON.stringify(data)
-      })
-    });
-
-    data["user"] = user;
-
-    return data;
   }
 }
