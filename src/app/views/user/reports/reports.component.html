@@ -1,0 +1,21 @@
+<div class="table-container">
+  <table id="reports-table" datatable [dtOptions]="options" class="table is-fullwidth">
+    <thead>
+      <tr>
+        <th>{{ 'office.promo-link' | translate }}</th>
+        <th>{{ 'office.traffic-browser' | translate }}</th>
+        <th>{{ 'office.traffic-device' | translate }}</th>
+        <th>{{ 'office.traffic-date' | translate }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let traffic of userT.traffic">
+        <td>{{ traffic.link }}</td>
+        <td>{{ traffic.browser }}</td>
+        <td>{{ traffic.device }}</td>
+        <td>{{ traffic.date | date: 'dd-MM-yyy HH:mm a'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

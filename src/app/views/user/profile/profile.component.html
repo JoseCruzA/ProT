@@ -1,0 +1,166 @@
+<div class="columns">
+  <div class="column is-half column-right">
+    <form [formGroup]="update" (ngSubmit)="onUpdate()">
+      <h2 class="has-text-centered">{{ 'office.update-info' | translate }}</h2>
+      <br>
+      <div class="columns">
+        <div class="field column">
+          <label class="label">{{ 'general.firstname' | translate }}</label>
+          <p class="control">
+            <input class="input" type="text" name="firstname" id="firstname-update"
+              formControlName="firstname" required>
+          </p>
+        </div>
+        <div class="field column">
+          <label class="label">{{ 'general.lastname' | translate }}</label>
+          <p class="control">
+            <input class="input" type="text" name="lastname" id="lastname-update"
+              formControlName="lastname">
+          </p>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="field column">
+          <label class="label">{{ 'general.email' | translate }}</label>
+          <p class="control">
+            <input class="input" type="email" name="email" id="email-update"
+              formControlName="email" required>
+          </p>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="field column">
+          <label class="label">{{ 'general.country' | translate }}</label>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth select-search">
+              <select name="country" id="country-update" formControlName="country"
+                (change)="onSelectCountry()" required>
+                <option [selected]="!update.get('country')?.value" disabled>
+                  {{ 'general.sel-country' | translate }}
+                </option>
+                <option [id]="country.callingCodes[0]" *ngFor="let country of countriesT"
+                    [selected]="update.get('country')?.value == (country.translations[selectedLanguage] ?
+                    country.translations[selectedLanguage] : country.name)">
+                  {{ country.translations[selectedLanguage] ?
+                  country.translations[selectedLanguage] : country.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="field column">
+          <label class="label">{{ 'general.phone' | translate }}</label>
+          <div class="field has-addons">
+            <p class="control country-code-btn">
+              <a class="button is-static">
+                <div *ngIf="flag != ''">
+                  <img [src]="flag" width="20">
+                  +{{ this.update.value.code }}
+                </div>
+              </a>
+            </p>
+            <p class="control">
+              <input class="input" type="number" name="phone" id="phone-update"
+                formControlName="phone">
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="notification is-danger" *ngIf="(fu.firstname.invalid && (fu.firstname.dirty || fu.firstname.touched))
+            || (fu.email.invalid && (fu.email.dirty || fu.email.touched)) || fu.email.errors?.email || (fu.country.invalid && (fu.country.dirty || fu.country.touched))
+            || this.updateErrors.length > 0">
+          <ul>
+            <li *ngIf="fu.firstname.invalid && (fu.firstname.dirty || fu.firstname.touched)">
+              {{ 'errors.firstname-required' | translate }}
+            </li>
+            <li *ngIf="fu.email.invalid && (fu.email.dirty || fu.email.touched)">
+              {{ 'errors.email-required' | translate }}
+            </li>
+            <li *ngIf="fu.email.errors?.email">
+              {{ 'errors.email-invalid' | translate }}
+            </li>
+            <li *ngIf="fu.country.invalid && (fu.country.dirty || fu.country.touched)">
+              {{ 'errors.country-required' | translate }}
+            </li>
+            <li *ngFor="let error of updateErrors">
+              {{ error | translate }}
+            </li>
+          </ul>
+        </div>
+      <div class="field is-grouped is-grouped-centered">
+        <div class="control">
+          <button class="button button-submit" [disabled]="update.invalid">
+            {{ 'office.update' | translate }}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="column is-half column-left">
+    <form [formGroup]="changePass" (ngSubmit)="onChange()">
+      <h2 class="has-text-centered">{{ 'office.update-pass' | translate }}</h2>
+      <br>
+      <div class="columns">
+        <div class="field column">
+          <label class="label">{{ 'office.current-pass' | translate }}</label>
+          <p class="control">
+            <input class="input" type="password" name="current"
+              id="current" formControlName="current" required>
+          </p>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="field column">
+          <label class="label">{{ 'general.password' | translate }}</label>
+          <p class="control">
+            <input class="input" type="password" name="password"
+              id="password-update" formControlName="password" required>
+          </p>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="field column field-password">
+          <label class="label">{{ 'general.re-pass' | translate }}</label>
+          <p class="control">
+            <input class="input" type="password" name="re-password"
+              id="re-password-update" formControlName="rePassword">
+          </p>
+        </div>
+      </div>
+      <div class="notification is-danger" *ngIf="(fc.password.invalid && (fc.password.dirty || fc.password.touched))
+            || (fc.rePassword.invalid && (fc.rePassword.dirty || fc.rePassword.touched))
+            || (fc.current.invalid && (fc.current.dirty || fc.current.touched))
+            || fc.password.value != fc.rePassword.value || fc.password.errors?.pattern || fc.current.errors?.pattern
+            || fc.password.errors?.minlength || this.changeErrors.length > 0">
+          <ul>
+            <li *ngIf="(fc.password.invalid && (fc.password.dirty || fc.password.touched))
+                      || (fc.current.invalid && (fc.current.dirty || fc.current.touched))">
+              {{ 'errors.pwd-required' | translate }}
+            </li>
+            <li *ngIf="fc.rePassword.invalid && (fc.rePassword.dirty || fc.rePassword.touched)">
+              {{ 'errors.pwd-confirm-required' | translate }}
+            </li>
+            <li *ngIf="fc.password.value != fc.rePassword.value">
+              {{ 'errors.pwd-no-match' | translate }}
+            </li>
+            <li *ngIf="fc.password.errors?.minlenght || fc.current.errors?.minlenght">
+              {{ 'errors.pwd-length' | translate }}
+            </li>
+            <li *ngIf="fc.password.errors?.pattern || fc.current.errors?.pattern">
+              {{ 'errors.pwd-match' | translate }}
+            </li>
+            <li *ngFor="let error of changeErrors">
+              {{ error | translate }}
+            </li>
+          </ul>
+        </div>
+      <div class="field is-grouped is-grouped-centered">
+        <div class="control">
+          <button class="button button-submit" [disabled]="changePass.invalid">
+            {{ 'office.change' | translate }}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

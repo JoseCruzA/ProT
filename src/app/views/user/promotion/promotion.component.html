@@ -1,0 +1,65 @@
+<div class="columns">
+  <div class="column is-half column-right">
+    <h2 class="has-text-centered">{{ 'office.promo-link' | translate }}</h2>
+    <div class="box">
+      <div class="font-semibold">
+        {{ 'office.users.your-code' | translate }} <strong class="font-bold">{{ userT.username }}</strong>
+      </div>
+      <div>
+        {{ 'office.users.code-used' | translate }}
+      </div>
+    </div>
+    {{ 'office.promo-link' | translate }}:
+    <a id="promo-link" [href]="'landing/ref/' + userT.username" target="_blank">
+      {{ defaultLink }}{{ userT.username }}
+    </a>
+  </div>
+  <div class="column is-half column-left">
+    <form [formGroup]="createLink" (ngSubmit)="onSubmit()">
+      <h2 class="has-text-centered">{{ 'office.create-link' | translate }}</h2>
+      <br>
+      <div class="columns">
+        <div class="field column">
+          <label class="label">{{ 'office.campaign' | translate }}</label>
+          <div class="control is-expanded">
+            <div class="select is-fullwidth select-search">
+              <select name="campaign" id="select-campaign" formControlName="campaign">
+                <option selected disabled>
+                  {{ 'office.users.select-campaign' | translate }}
+                </option>
+                <option id="{{ userT.username }}-{{ campaign.name }}" *ngFor="let campaign of userT.campaign">
+                  {{ campaign.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="field column">
+          <label class="label">{{ 'office.promo-link' | translate }}</label>
+          <label class="font-light">{{ 'office.generate-link-info' | translate }}</label>
+          <p class="control">
+            <input class="input" type="text" name="link"
+              id="new-link" formControlName="link">
+          </p>
+        </div>
+      </div>
+      <div class="columns" *ngIf="newLink">
+        <div class="field column">
+          {{ 'office.promo-link' | translate }}:
+          <a id="promo-link" [href]="newLink" target="_blank">
+            {{ newLink }}
+          </a>
+        </div>
+      </div>
+      <div class="field is-grouped is-grouped-centered">
+        <div class="control">
+          <button class="button button-submit" [disabled]="createLink.invalid">
+            {{ 'office.generate-link' | translate }}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

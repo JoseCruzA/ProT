@@ -10,10 +10,8 @@ export class Event {
   sarts_at!: Date;
   end_at!: Date;
   frequency: String = "";
-  frequency_date!: Number;
-  frequecy_type: String = "";
   color: String = "";
   link: String = "";
-  inserted_at: Date = new Date();
-  updated_at: Date = new Date();
+  createdAt: Date = new Date();
+  updatedAt: Date = new Date();
 }

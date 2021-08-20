@@ -1,0 +1,159 @@
+.user-info {
+  background-image: url('../../../../assets/img/header-landing2.png');
+  background-size: 100% 100%;
+  min-height: 60vh;
+}
+
+.see-here {
+  background-image: url('../../../../assets/img/see-here.gif');
+  background-size: 100% 100%;
+  padding: 20px;
+  margin-left: -20px;
+}
+
+.landing-head {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.is-150x150 {
+  height: 150px;
+  width: 150px;
+}
+
+.img-round {
+  border-radius: 20px;
+  display: flex;
+  background-color: #FFFFFF;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img-round img {
+  border-radius: 20px;
+}
+
+#about-me-info {
+  z-index: 1;
+  text-align: justify;
+  align-self: center;
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  padding: 0 50px;
+}
+
+.about-me {
+  padding: calc(15vw - 5vh) 20vw;
+  width: 100%;
+}
+
+.principal-image {
+  padding: 0;
+}
+
+.title {
+  color: #009975;
+  font-family: "Raleway-Bold", sans-serif;
+}
+
+.img {
+  border-radius: 20px;
+}
+
+.video-explanation {
+  padding: 0 10vw 50px 10vw;
+}
+
+video {
+  box-shadow: 6px 3px 17px 4px #000000;
+  width: 100%;
+}
+
+.landing-footer {
+  background: linear-gradient(290deg, rgb(0, 153, 117) 0%, rgb(0, 60, 46) 92%);
+  padding: 7vw;
+}
+
+div {
+  font-family: "Raleway", sans-serif;
+}
+
+.ml-16 {
+  margin: 0 16vw;
+  font-size: 14pt;
+}
+
+.info-royal-about {
+  padding-bottom: 35px;
+  border-bottom: 1px solid #000000;
+}
+
+#what-do-royal {
+  padding-top: 35px;
+}
+
+.title:not(.is-spaced)+.subtitle {
+  margin-top: 0;
+}
+
+.contact-whatsapp {
+  margin-bottom: 16px;
+}
+
+.whatsapp-button {
+  background-image: url('../../../../assets/img/landing-div2.png');
+  background-size: 100% 100%;
+  padding: 140px 0 20px 0;
+}
+
+.whatsapp-button .title.is-3 {
+  margin: 0;
+}
+
+@media screen and (max-width: 810px) {
+  section {
+    padding: 0 5vw;
+  }
+
+  .ml-16 {
+    margin: 0;
+    font-size: 14pt;
+  }
+
+  .landing-footer {
+    padding: 7vw;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .user-info {
+    background-size: 400% 100%;
+    background-position-x: -100px;
+  }
+
+  .about-me {
+    padding: calc(15vw - 5vh) 10vw;
+  }
+
+  #about-me-info {
+    padding: 0;
+  }
+
+  .about-royal {
+    margin-top: 6px;
+  }
+
+  .title.is-2 {
+    font-size: 2rem;
+  }
+
+  .video-explanation {
+    padding: 0;
+  }
+
+  .whatsapp-button {
+    background: linear-gradient(290deg, rgb(0, 153, 117) 0%, rgb(0, 60, 46) 92%);
+    padding: 20px 0 20px 0;
+  }
+}

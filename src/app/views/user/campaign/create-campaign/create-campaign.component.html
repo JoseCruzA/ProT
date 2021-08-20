@@ -1,0 +1,43 @@
+<div class="modal-background">
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title has-text-centered">
+        {{ 'office.create-campaign' | translate }}
+      </p>
+      <button class="delete" aria-label="close" (click)="closeModal()" close></button>
+    </header>
+    <form [formGroup]="campaign" (ngSubmit)="onSubmit()">
+      <section class="modal-card-body">
+        <div class="columns">
+          <div class="field column">
+            <label class="label">{{ 'office.campaign-name' | translate }}</label>
+            <p class="control">
+              <input class="input" type="text" name="campaign" id="campaign-name" formControlName="name" required>
+            </p>
+          </div>
+        </div>
+        <div class="notification is-danger" *ngIf="(f.name.invalid && (f.name.dirty || f.name.touched))
+            || this.errors.length > 0">
+          <ul>
+            <li *ngIf="f.name.invalid && (f.name.dirty || f.name.touched)">
+              {{ 'errors.campaign-required' | translate }}
+            </li>
+            <li *ngFor="let error of errors">
+              {{ error | translate }}
+            </li>
+          </ul>
+        </div>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button button-submit" type="submit"
+          [disabled]="campaign.invalid">
+          {{ 'office.create-campaign' | translate }}
+        </button>
+        <button class="button button-reset" type="reset"
+          (click)="closeModal()">
+          {{ 'general.cancel' | translate }}
+        </button>
+      </footer>
+    </form>
+  </div>
+</div>

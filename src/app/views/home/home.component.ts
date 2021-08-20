@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
+import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/app/models/user.model';
 
 registerLocaleData(localeEs);
 
@@ -18,8 +20,10 @@ registerLocaleData(localeEs);
  */
 export class HomeComponent implements OnInit {
   selectedLanguage = "en";
+  token!: string;
+  user!: User;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     let lang = window.navigator.language || navigator.language;
@@ -28,6 +32,10 @@ export class HomeComponent implements OnInit {
     if (lang != this.selectedLanguage) {
       this.selectedLanguage = lang;
     }
+
+    this.authService.validateLogin().subscribe((response: any) => {
+      this.token = response;
+    });
   }
 
   /**

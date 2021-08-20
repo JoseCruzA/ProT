@@ -1,4 +1,4 @@
-import { Campaing } from "./campaing.model";
+import { Campaign } from "./campaign.model";
 import { Role } from "./role.model";
 import { Traffic } from "./traffic.model";
 import { Function } from "./function.model";
@@ -18,10 +18,11 @@ export class User {
   country: String = "";
   password: String = "";
   image: String = "";
+  banner: String = "";
   roles: Array<Role> = [];
   functions: Array<Function> = [];
   traffic: Array<Traffic> = [];
-  campaign: Array<Campaing> = [];
+  campaign: Array<Campaign> = [];
   createdAt: Date = new Date();
   updatedAt: Date = new Date();
 }

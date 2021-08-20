@@ -1,0 +1,112 @@
+.card {
+  margin-top: 9px;
+  padding: 48px;
+}
+
+.welcome .title {
+  font-family: "Raleway-Bold", sans-serif;
+}
+
+.welcome .subtitle {
+  font-family: "Raleway-SemiBold", sans-serif;
+}
+
+.is-150x150 {
+  height: 150px;
+  width: 150px;
+}
+
+.img-round {
+  border-radius: 100%;
+  display: flex;
+  background-color: #FFFFFF;
+}
+
+.img-round img {
+  border-radius: 100%;
+}
+
+#user-image {
+  visibility: hidden;
+}
+
+.media {
+  align-items: center;
+}
+
+.card-content {
+  padding: 0 1.5rem 1.5rem 1.5rem 1.5rem;
+  margin-top: -160px;
+  font-family: "Raleway", sans-serif;
+}
+
+.media-content {
+  color: #FFFFFF;
+  z-index: 1;
+}
+
+.card-image figure {
+  background-color: #009975;
+}
+
+.card-image figure img {
+  opacity: 0.6;
+}
+
+li a {
+  color: #000000;
+}
+
+li.is-active a, li a:hover{
+  color: #009975;
+}
+
+.user-flag {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+.user-subtitle {
+  margin-bottom: 10px;
+}
+
+.img-change {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.principal-image label {
+  position: absolute;
+  display: none;
+}
+
+.principal-image:hover label {
+  display: block;
+}
+
+.breadcrumb a {
+  justify-content: left;
+}
+
+.middle-line {
+  width: 90%;
+  height: 1px;
+  background-color: #000000;
+  margin: 4px 10px 4px 10px;
+}
+
+.is-active-drop {
+  color: #009975 !important;
+}
+
+@media screen and (max-width: 730px) and (orientation: portrait) {
+  .is-3by1 {
+    padding-top: 66.666%;
+  }
+
+  .card {
+    padding: 0;
+  }
+}

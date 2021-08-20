@@ -1,5 +1,8 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +22,7 @@ export class LoginComponent implements OnInit {
   @Output() toLogin = new EventEmitter<boolean>();
   login!: FormGroup;
 
-  constructor(private formGroup: FormBuilder) {
+  constructor(private formGroup: FormBuilder, private authService: AuthService, private translateService: TranslateService) {
     this.login = this.formGroup.group({
       user: new FormControl("", [
         Validators.required,
@@ -34,6 +37,16 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+  }
+
+  /**
+   * Close the notitication
+   */
+  closeNotification() {
+    if (!document.querySelector('.notification')!.classList.contains('d-none')) {
+      document.querySelector('.notification')!.classList.add('d-none');
+    }
   }
 
   /**
@@ -56,7 +69,19 @@ export class LoginComponent implements OnInit {
    * Method for send the form data to login user
    */
   onSubmit() {
-    
+    this.authService.login(this.login.value).subscribe((response) => {
+      this.login.reset();
+      this.closeModal();
+      window.location.replace('/office');
+    }, (error) => {
+      this.translateService.get(`errors.${error.error.name}`).subscribe((res: string) => {
+        document.querySelector('.error')!.innerHTML = res;
+      });
+
+      if (document.querySelector('.notification')!.classList.contains('d-none')) {
+        document.querySelector('.notification')!.classList.remove('d-none');
+      }
+    });
   }
 
 }

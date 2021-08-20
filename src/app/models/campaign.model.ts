@@ -4,7 +4,7 @@
  * @author Jose Cruz
  * @version 1.0
  */
-export class Campaing {
+export class Campaign {
   _id: String = "";
   name: String = "";
   visits: Number = 0;
