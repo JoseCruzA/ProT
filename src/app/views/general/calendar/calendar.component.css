@@ -59,6 +59,24 @@
   color: #FFFFFF;
 }
 
+.button.btn-submit {
+  font-family: "Raleway-SemiBold", sans-serif;
+  border-radius: 10vw;
+  width: min-content;
+}
+
+.btn-submit {
+  display: block;
+  margin-left: auto;
+  background: linear-gradient(290deg, #17E5B5 0%, #004D3B 92%);
+  color: #FFFFFF;
+}
+
+.btn-submit:hover {
+  background: #FFFFFF;
+  color: #000000;
+}
+
 @media screen and (max-width: 1110px) and (orientation: landscape) {
   .calendar-title {
     font-size: 1.7vw;

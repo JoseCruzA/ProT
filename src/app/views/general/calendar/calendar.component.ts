@@ -1,24 +1,20 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, Input } from '@angular/core';
-import { CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent, CalendarView } from 'angular-calendar';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import { CalendarDayViewBeforeRenderEvent, CalendarEvent, CalendarEventAction, CalendarEventTimesChangedEvent, CalendarMonthViewBeforeRenderEvent, CalendarView, CalendarWeekViewBeforeRenderEvent } from 'angular-calendar';
 import { differenceInMinutes, endOfDay, isSameDay, isSameMonth, startOfDay, startOfHour } from 'date-fns';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Event } from 'src/app/models/event.model';
+import RRule from 'rrule';
+import { ViewPeriod } from 'calendar-utils';
+import * as moment from 'moment-timezone';
+import { EventService } from 'src/app/services/event.service';
+import { UserService } from 'src/app/services/user.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/app/models/user.model';
+import { RecurringEvent } from 'src/app/interfaces/recurring-event';
 
-const colors: any = {
-  red: {
-    primary: '#ad2121',
-    secondary: '#FAE3E3',
-  },
-  blue: {
-    primary: '#1e90ff',
-    secondary: '#D1E8FF',
-  },
-  yellow: {
-    primary: '#e3bc08',
-    secondary: '#FDF1BA',
-  },
-};
+moment.tz.setDefault('Utc');
 
 @Component({
   selector: 'app-calendar',
@@ -26,77 +22,49 @@ const colors: any = {
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css']
 })
-export class CalendarComponent implements OnInit, AfterViewInit {
+export class CalendarComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() selectedLanguage!: string;
   @Input() showType!: boolean;
   @Input() showTitle!: boolean;
   @Input() calendarType!: string;
-
+  @Input() showButton: boolean = false;
+  @Input() token!: string;
+  @Input() user!: User;
+  @Input() canCreate!: boolean;
+  @Input() canUpdate!: boolean;
+  @Input() canDelete!: boolean;
+  userT!: User;
   daysInWeek = 7;
   view!: CalendarView;
   CalendarView = CalendarView;
-  viewDate: Date = new Date();
-  actions: CalendarEventAction[] = [
+  viewDate = moment().toDate();
+  viewPeriod!: ViewPeriod;
+  create: boolean = false;
+  update: boolean = false;
+  delete: boolean = false;
+  eventSelected!: Event;
+  myEvents!: Event[];
+  actions: CalendarEventAction[] = [];
+  refresh: Subject<any> = new Subject();
+  activeDayIsOpen: boolean = true;
+  events: CalendarEvent[] = [];
+  recurringEvents: RecurringEvent[] = []; /*[
     {
-      label: '<i class="fas fa-fw fa-pencil-alt"></i>',
-      a11yLabel: 'Edit',
-      onClick: ({ event }: { event: CalendarEvent }): void => {
-        this.handleEvent('Edited', event);
+      title: 'Historias de éxito',
+      color: colors.blue,
+      start: "21:00:00",
+      end: "22:00:00",
+      rrule: {
+        freq: RRule.WEEKLY,
+        byweekday: [RRule.MO]
       },
-    },
-    {
-      label: '<i class="fas fa-fw fa-trash-alt"></i>',
-      a11yLabel: 'Delete',
-      onClick: ({ event }: { event: CalendarEvent }): void => {
-        this.events = this.events.filter((iEvent) => iEvent !== event);
-        this.handleEvent('Deleted', event);
+      meta: {
+        link: "https://bit.ly/zoomroyalgreen"
       }
     }
-  ];
-  refresh: Subject<any> = new Subject();
-  events: CalendarEvent[] = [
-    /*{
-      start: subDays(startOfDay(new Date()), 1),
-      end: addDays(new Date(), 1),
-      title: 'A 3 day event',
-      color: colors.red,
-      actions: this.actions,
-      allDay: true,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true,
-      },
-      draggable: true,
-    },
-    {
-      start: startOfDay(new Date()),
-      title: 'An event with no end date',
-      color: colors.yellow,
-      actions: this.actions,
-    },
-    {
-      start: subDays(endOfMonth(new Date()), 3),
-      end: addDays(endOfMonth(new Date()), 3),
-      title: 'A long event that spans 2 months',
-      color: colors.blue,
-      allDay: true,
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: addHours(new Date(), 2),
-      title: 'A draggable and resizable event',
-      color: colors.yellow,
-      actions: this.actions,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true,
-      },
-      draggable: true,
-    }*/
-  ];
-  activeDayIsOpen: boolean = true;
+  ];*/
 
-  constructor(private cdr: ChangeDetectorRef, private breakpointObserver: BreakpointObserver) { }
+  constructor(private cdr: ChangeDetectorRef, private breakpointObserver: BreakpointObserver, private eventService: EventService, private userService: UserService, private authService: AuthService) {}
 
   ngOnInit(): void {
     switch (this.calendarType) {
@@ -115,6 +83,38 @@ export class CalendarComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.scrollToCurrentView();
+  }
+
+  ngOnChanges(changes: any) {
+    if (changes.user?.currentValue != undefined) {
+      this.userT = changes.user.currentValue;
+    }
+
+    if (changes.canUpdate?.currentValue != undefined) {
+      if (changes.canUpdate.currentValue) {
+        this.actions.push({
+          label: '<i class="fas fa-fw fa-pencil-alt has-text-white"></i>',
+          a11yLabel: 'Edit',
+          onClick: ({ event }: { event: CalendarEvent }): void => {
+            this.eventSelected = this.myEvents.filter(myEvent => myEvent._id == event.meta.id)[0];
+            this.update = true;
+          },
+        });
+      }
+    }
+
+    if (changes.canDelete?.currentValue != undefined) {
+      if (changes.canDelete.currentValue) {
+        this.actions.push({
+          label: '<i class="fas fa-fw fa-trash-alt has-text-white"></i>',
+          a11yLabel: 'Delete',
+          onClick: ({ event }: { event: CalendarEvent }): void => {
+            this.eventSelected = this.myEvents.filter(myEvent => myEvent._id == event.meta.id)[0];
+            this.delete = true;
+          }
+        });
+      }
+    }
   }
 
   /**
@@ -178,6 +178,90 @@ export class CalendarComponent implements OnInit, AfterViewInit {
   }
 
   /**
+   * Method for update all events in the calendar
+   */
+  updateCalendarEvents(
+    viewRender:
+      | CalendarMonthViewBeforeRenderEvent
+      | CalendarWeekViewBeforeRenderEvent
+      | CalendarDayViewBeforeRenderEvent
+  ): void {
+    this.eventService.getEvents().subscribe((events: Event[]) => {
+      localStorage.setItem('allEvents', JSON.stringify(events));
+      let allEvents: RecurringEvent[] = [];
+
+      events.forEach(event => {
+        allEvents.push({
+          title: event.name,
+          start: event.sarts_at,
+          end: event.end_at,
+          date: event.date,
+          color: event.color,
+          rrule: {
+            freq: event.rrule?.freq,
+            byweekday: event.rrule?.byweekday
+          },
+          meta: {
+            id: event._id,
+            link: event.link
+          }
+        });
+      });
+
+      localStorage.setItem('events', JSON.stringify(allEvents));
+    });
+
+    setTimeout(() => {
+      this.recurringEvents = JSON.parse(localStorage.getItem('events')!);
+      this.myEvents = JSON.parse(localStorage.getItem('allEvents')!);
+
+      if (!this.viewPeriod || !moment(this.viewPeriod.start).isSame(viewRender.period.start)
+        || !moment(this.viewPeriod.end).isSame(viewRender.period.end)) {
+
+        this.viewPeriod = viewRender.period;
+        this.events = [];
+
+        this.recurringEvents.forEach((event) => {
+          if (event.rrule?.freq != 4) {
+            const rule: RRule = new RRule({
+              ...event.rrule,
+              dtstart: moment(viewRender.period.start).startOf('day').toDate(),
+              until: moment(viewRender.period.end).endOf('day').toDate()
+            });
+            const { title, color, meta } = event;
+            let start = new Date(new Date().getFullYear + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate() + ' ' + event.start);
+            let end = new Date(new Date().getFullYear + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate() + ' ' + event.end);
+            rule.all().forEach((date) => {
+              this.events.push({
+                title,
+                color,
+                start: new Date(moment(date).toDate().setHours(start.getHours())),
+                end: new Date(moment(date).toDate().setHours(end.getHours())),
+                meta,
+                actions: this.actions
+              });
+            });
+          } else {
+            const { title, color, meta, date } = event;
+            let start = new Date(new Date().getFullYear + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate() + ' ' + event.start);
+            let end = new Date(new Date().getFullYear + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate() + ' ' + event.end);
+            this.events.push({
+              title,
+              color,
+              start: new Date(new Date(moment(date).toDate().setHours(start.getHours())).setDate(moment(date).toDate().getDate() + 1)),
+              end: new Date(new Date(moment(date).toDate().setHours(end.getHours())).setDate(moment(date).toDate().getDate() + 1)),
+              meta,
+              actions: this.actions
+            });
+          }
+        });
+
+        this.cdr.detectChanges();
+      }
+    }, 1000);
+  }
+
+  /**
    * Method that get when a date is touched in the calendar
    *
    * @param {*} { date, events } the object with the info of the date selected and its events
@@ -209,47 +293,70 @@ export class CalendarComponent implements OnInit, AfterViewInit {
       }
       return iEvent;
     });
-    this.handleEvent('Dropped or resized', event);
   }
 
   /**
    * Method charged of select the action to make
    *
-   * @param action the action
    * @param event the event
    * @returns {void}
    */
-  handleEvent(action: string, event: CalendarEvent): void {
-    return;
+  eventClicked({ event }: { event: CalendarEvent }): void {
+    window.open(event.meta.link, "_blank");
   }
 
-  /**
-   * Method charged for create a new event
-   */
-  addEvent(): void {
-    this.events = [
-      ...this.events,
-      {
-        title: 'New event',
-        start: startOfDay(new Date()),
-        end: endOfDay(new Date()),
-        color: colors.red,
-        draggable: true,
-        resizable: {
-          beforeStart: true,
-          afterEnd: true,
-        },
-      },
-    ];
-  }
 
   /**
    * Method charged to delete an event
    *
-   * @param eventToDelete the event
+   * @param {String} event the event id
    */
-  deleteEvent(eventToDelete: CalendarEvent) {
-    this.events = this.events.filter((event) => event !== eventToDelete);
+  deleteEvent(event: String) {
+    this.eventService.deleteEvent(this.token, event).subscribe((response: any) => {
+      location.reload();
+    }, (err: any) => {
+      console.log(err);
+    });
+
+    this.delete = false;
+    this.eventSelected = new Event();
+  }
+
+  /**
+   * Method charged to create a new event
+   *
+   * @param {any} event the event to create
+   */
+  createEvent(event: Event) {
+    this.eventService.newEvent(this.token, event).subscribe((response: any) => {
+      location.reload();
+    }, (err: any) => {
+      console.log(err);
+    })
+
+    this.create = false;
+
+  }
+
+  /**
+   * Method charged to update an event
+   *
+   * @param {any} event the event to update
+   */
+   updateEvent(event: Event) {
+    this.eventService.updateEvent(this.token, event).subscribe((response: any) => {
+      location.reload();
+    }, (err: any) => {
+      console.log(err);
+    })
+
+    this.update = false;
+    this.eventSelected = new Event();
+  }
+
+  closeDelete(event: boolean) {
+    this.delete = false;
+    this.eventSelected = new Event();
   }
 
   /**
@@ -261,6 +368,15 @@ export class CalendarComponent implements OnInit, AfterViewInit {
 
   setView(view: CalendarView) {
     this.view = view;
+  }
+
+  close(value: boolean) {
+    if (this.create) {
+      this.create = value;
+    } else if (this.update) {
+      this.update = value;
+      this.eventSelected = new Event();
+    }
   }
 
   ngOnDestroy() {

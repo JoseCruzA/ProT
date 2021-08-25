@@ -34,6 +34,8 @@ import { CreateCampaignComponent } from './views/user/campaign/create-campaign/c
 import { DeleteCampaignComponent } from './views/user/campaign/delete-campaign/delete-campaign.component';
 import { DataTablesModule } from 'angular-datatables';
 import * as $ from 'jquery';
+import { CreateEventComponent } from './views/event/create-event/create-event.component';
+import { DeleteEventComponent } from './views/event/delete-event/delete-event.component';
 
 
 /**
@@ -69,7 +71,9 @@ export function rootLoaderFactory(http: HttpClient) {
     LandingComponent,
     WhatsappComponent,
     CreateCampaignComponent,
-    DeleteCampaignComponent
+    DeleteCampaignComponent,
+    CreateEventComponent,
+    DeleteEventComponent
   ],
   imports: [
     BrowserModule,

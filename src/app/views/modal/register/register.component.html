@@ -45,7 +45,7 @@
             <label class="label">{{ 'general.country' | translate }} *</label>
             <div class="control is-expanded">
               <div class="select is-fullwidth select-search">
-                <select iname="country" id="country" formControlName="country"
+                <select name="country" id="country" formControlName="country"
                   (change)="onSelectCountry()" required>
                   <option selected disabled>{{ 'general.sel-country' | translate }}</option>
                   <option [id]="country.callingCodes[0]" *ngFor="let country of

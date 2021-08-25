@@ -1,3 +1,5 @@
+import { HashMap } from "../interfaces/HashMap.interface";
+
 /**
  * Class for store and maage events
  *
@@ -5,13 +7,22 @@
  * @version 1.0
  */
 export class Event {
-  _id: String = "";
-  name: String = "";
-  sarts_at!: Date;
-  end_at!: Date;
-  frequency: String = "";
-  color: String = "";
-  link: String = "";
+  _id: string = "";
+  name: string = "";
+  sarts_at!: string;
+  end_at!: string;
+  date!: Date;
+  color?: {
+    primary: string,
+    secondary: string
+  };
+  link: string = "";
+  rrule?: {
+    freq: any;
+    bymonth?: any;
+    bymonthday?: any;
+    byweekday?: any;
+  };
   createdAt: Date = new Date();
   updatedAt: Date = new Date();
 }
