@@ -1,6 +1,7 @@
 <div class="has-text-centered">
   <img class="events-image" src="../../assets/img/schedule.jpeg">
-  <app-calendar [selectedLanguage]="selectedLanguage"
-        [showType]="true" [showTitle]="false">
+  <app-calendar [selectedLanguage]="selectedLanguage" [user]="user" [token]="token"
+        [showType]="true" [showTitle]="false" [showButton]="true" [canCreate]="canCreate"
+        [canUpdate]="canUpdate" [canDelete]="canDelete">
   </app-calendar>
 </div>

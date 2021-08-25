@@ -42,21 +42,34 @@
     <br>
     <div [ngSwitch]="view" class="event-calendar">
       <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events"
-      [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
-      (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)"
-      [locale]="selectedLanguage">
+        [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
+        (eventTimesChanged)="eventTimesChanged($event)" [locale]="selectedLanguage"
+        (beforeViewRender)="updateCalendarEvents($event)" (eventClicked)="eventClicked($event)">
       </mwl-calendar-month-view>
       <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events"
-        [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)"
-        [locale]="selectedLanguage" class="calendar-week" [daysInWeek]="daysInWeek" [dayStartHour]="8"
-        [dayEndHour]="23">
+        [refresh]="refresh" (eventTimesChanged)="eventTimesChanged($event)" [locale]="selectedLanguage"
+        class="calendar-week" [daysInWeek]="daysInWeek" [dayStartHour]="8" [dayEndHour]="23"
+        (beforeViewRender)="updateCalendarEvents($event)" (eventClicked)="eventClicked($event)">
       </mwl-calendar-week-view>
       <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events"
-        [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)"
-        (eventTimesChanged)="eventTimesChanged($event)" [locale]="selectedLanguage" [dayStartHour]="8"
-        [dayEndHour]="23">
+        [refresh]="refresh" (eventTimesChanged)="eventTimesChanged($event)" [locale]="selectedLanguage"
+        [dayStartHour]="8" [dayEndHour]="23" (beforeViewRender)="updateCalendarEvents($event)"
+        (eventClicked)="eventClicked($event)">
       </mwl-calendar-day-view>
     </div>
-    <br><br>
+    <br>
+    <div class="section-button" *ngIf="showButton && canCreate">
+      <a class="button btn-submit" (click)="create = true">
+        <i class="fas fa-calendar-plus"></i>&nbsp;
+        <strong>{{ 'events.create-event' | translate }}</strong>
+      </a>
+    </div>
+    <br>
   </div>
 </section>
+<div class="modal" [ngClass]="{ 'is-active': create || update }" *ngIf="create || update">
+  <app-create-event [eventSelected]="eventSelected" [create]="create" [update]="update" (createEvent)="createEvent($event)" (updateEvent)="updateEvent($event)" (close)="close($event)"></app-create-event>
+</div>
+<div class="modal" [ngClass]="{ 'is-active': delete }" *ngIf="delete">
+  <app-delete-event [event]="eventSelected" [selectedLanguage]="selectedLanguage" (deleteEvent)="deleteEvent($event)" (close)="closeDelete($event)"></app-delete-event>
+</div>

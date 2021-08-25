@@ -1,0 +1,151 @@
+<div class="modal-background">
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title has-text-centered" *ngIf="create">
+        {{ 'events.create-event' | translate }}
+      </p>
+      <p class="modal-card-title has-text-centered" *ngIf="update">
+        {{ 'events.edit-event' | translate }}
+      </p>
+      <button class="delete" aria-label="close" (click)="closeModal()"></button>
+    </header>
+    <form [formGroup]="event" (ngSubmit)="onSubmit()">
+      <section class="modal-card-body">
+        <div class="columns">
+          <div class="field column">
+            <label class="label">{{ 'events.name-event' | translate }}</label>
+            <p class="control">
+              <input class="input" type="text" name="name" id="name"
+                formControlName="title" required>
+            </p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="field column">
+            <label class="label">{{ 'events.start-time' | translate }}</label>
+            <p class="control">
+              <input class="input" type="time" name="start"
+                id="start" formControlName="start" required>
+            </p>
+          </div>
+          <div class="field column">
+            <label class="label">{{ 'events.end-time' | translate }}</label>
+            <p class="control">
+              <input class="input" type="time" name="end"
+                id="end" formControlName="end" required>
+            </p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="field column">
+            <label class="label">{{ 'events.primary-color' | translate }}</label>
+            <p class="control">
+              <input class="input" type="color" name="primary"
+                id="primary" formControlName="primaryColor" required>
+            </p>
+          </div>
+          <div class="field column">
+            <label class="label">{{ 'events.secondary-color' | translate }}</label>
+            <p class="control">
+              <input class="input" type="color" name="secondary"
+                id="secondary" formControlName="secondaryColor" required>
+            </p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="field column">
+            <label class="label">{{ 'events.frequency' | translate }}</label>
+            <div class="select is-fullwidth select-search">
+              <select name="frequency" id="frequency" formControlName="frequency">
+                <option selected disabled>{{ 'events.select-frequency' | translate }}</option>
+                <option [value]="rrule.YEARLY">{{ 'events.freq-year' | translate }}</option>
+                <option [value]="rrule.MONTHLY">{{ 'events.freq-month' | translate }}</option>
+                <option [value]="rrule.WEEKLY">{{ 'events.freq-week' | translate }}</option>
+                <option [value]="rrule.DAILY">{{ 'events.freq-day' | translate }}</option>
+                <option [value]="4">{{ 'events.freq-once' | translate }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="columns" *ngIf="f.frequency.value == rrule.YEARLY && f.frequency.value != ''">
+          <div class="field column">
+            <label class="label">{{ 'events.month' | translate }}</label>
+            <div class="select is-fullwidth select-search is-multiple">
+              <select name="month" id="month" formControlName="frequencyMonth" multiple size="5">
+                <option selected disabled>{{ 'events.select-month' | translate }}</option>
+                <option value="1">{{ 'events.jan' | translate }}</option>
+                <option value="2">{{ 'events.feb' | translate }}</option>
+                <option value="3">{{ 'events.march' | translate }}</option>
+                <option value="4">{{ 'events.apr' | translate }}</option>
+                <option value="5">{{ 'events.may' | translate }}</option>
+                <option value="6">{{ 'events.jun' | translate }}</option>
+                <option value="7">{{ 'events.jul' | translate }}</option>
+                <option value="8">{{ 'events.aug' | translate }}</option>
+                <option value="9">{{ 'events.sep' | translate }}</option>
+                <option value="10">{{ 'events.oct' | translate }}</option>
+                <option value="11">{{ 'events.nov' | translate }}</option>
+                <option value="12">{{ 'events.dec' | translate }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="columns" *ngIf="(f.frequency.value == rrule.YEARLY || f.frequency.value == rrule.MONTHLY) && f.frequency.value != ''">
+          <div class="field column">
+            <label class="label">{{ 'events.month-day' | translate }}</label>
+            <p class="control">
+              <input class="input" type="number" name="monthday" id="monthday" formControlName="frequencyDay">
+            </p>
+          </div>
+        </div>
+        <div class="columns" *ngIf="f.frequency.value == rrule.WEEKLY">
+          <div class="field column">
+            <label class="label">{{ 'events.week-day' | translate }}</label>
+            <div class="select is-fullwidth select-search is-multiple">
+              <select name="weekday" id="weekday" formControlName="frequencyWeekDay" multiple size="5">
+                <option selected disabled>{{ 'events.select-day' | translate }}</option>
+                <option value="1">{{ 'events.monday' | translate }}</option>
+                <option value="2">{{ 'events.tuesday' | translate }}</option>
+                <option value="3">{{ 'events.wednesday' | translate }}</option>
+                <option value="4">{{ 'events.thursday' | translate }}</option>
+                <option value="5">{{ 'events.friday' | translate }}</option>
+                <option value="6">{{ 'events.saturday' | translate }}</option>
+                <option value="0">{{ 'events.sunday' | translate }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="columns" *ngIf="f.frequency.value == '4'">
+          <div class="field column">
+            <label class="label">{{ 'office.traffic-date' | translate }}</label>
+            <p class="control">
+              <input class="input" type="date" name="date" id="date" formControlName="date" />
+            </p>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="field column">
+            <label class="label">{{ 'events.link' | translate }}</label>
+            <p class="control">
+              <input class="input" type="url" name="link" id="link" formControlName="link" />
+            </p>
+          </div>
+        </div>
+        <div class="notification is-danger d-none">
+          <button class="delete" (click)="closeNotification()"></button>
+          <div class="error"></div>
+        </div>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button button-submit" type="submit" [disabled]="!event.valid" *ngIf="create">
+          {{ 'events.create-event' | translate }}
+        </button>
+        <button class="button button-submit" type="submit" [disabled]="!event.valid" *ngIf="update">
+          {{ 'events.edit-event' | translate }}
+        </button>
+        <button class="button button-reset" type="reset" (click)="closeModal()">
+          {{ 'general.cancel' | translate }}
+        </button>
+      </footer>
+    </form>
+  </div>
+</div>
