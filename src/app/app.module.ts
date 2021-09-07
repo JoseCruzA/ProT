@@ -36,6 +36,7 @@ import { DataTablesModule } from 'angular-datatables';
 import * as $ from 'jquery';
 import { CreateEventComponent } from './views/event/create-event/create-event.component';
 import { DeleteEventComponent } from './views/event/delete-event/delete-event.component';
+import { TrainingComponent } from './views/training/training.component';
 
 
 /**
@@ -73,7 +74,8 @@ export function rootLoaderFactory(http: HttpClient) {
     CreateCampaignComponent,
     DeleteCampaignComponent,
     CreateEventComponent,
-    DeleteEventComponent
+    DeleteEventComponent,
+    TrainingComponent
   ],
   imports: [
     BrowserModule,

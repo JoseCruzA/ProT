@@ -179,6 +179,37 @@
     "disclaimer": "Disclaimer: This website is in no way affiliated with Facebook or any Facebook entity. Once you leave Facebook, the responsability is no longer on your site. We don't sell your email.",
     "notice": "LEGAL NOTICE: Before going any further, please let us clarify that our results are not typical. Chances are we haven't met. We're going to show you what worked well for us, and we hope you'll be able to use some of the information we share with you so you can generate the results you personally want to achieve. So, if you're looking for one of those 'Making a quick milionaire on the Internet' offers, this isn't. But, if you're an 'Enterprisign person' who has some skill, some commom sense and willingness to work for what you want, this is definitely for you."
   },
+  "library": {
+    "books": "Books",
+    "documentaries": "Documentaries",
+    "videos": "Videos",
+    "audios": "Audios",
+    "download-content": "Downloadable Content",
+    "audios-content": {
+      "the-cow": "The cow",
+      "build-red": "Building your network",
+      "positive-approach": "Positive mental approach",
+      "success-puzzle": "Success puzzle",
+      "winner-seminary": "Winners Seminar",
+      "make-it": "Create it, you can",
+      "wish-mandate": "Your whish is mandate",
+      "records-royal": "Royal Green mixlr recordings"
+    }
+  },
+  "training": {
+    "training-center": "Training center",
+    "see-more": "See more",
+    "master-network-title": "Master in social network by Eric Worre",
+    "master-network-description": "All you need know for become in an expert in the digital prospection for a multilevel company",
+    "digital-propection-title": "Funds for digital prospection",
+    "digital-prospection-description": "Have you never work using internet in yout favor? This course will teach you to do the funds for create a digital business",
+    "organic-traffic-title": "Organic Traffic",
+    "organic-traffic-description": "Do you know the interent protential, but you don't take adventage for lack of resources? Learn to create traffic without pay for this",
+    "pay-traffic-title": "Pay Traffic",
+    "pay-traffic-description": "If you feel exceited for internet and you want to enhace your business wit pay advertising in Facesbook and Instagram. You must join to this course",
+    "bonds-title": "Bonds",
+    "bonds-description": "We know that the gifts excited you and more if they are Free! Claim here the bonds of digital marketing"
+  },
   "errors": {
     "wrong-pwd": "The entered password is wrong",
     "user-not-found": "The user entered doesn't exists in our registers",

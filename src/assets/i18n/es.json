@@ -179,6 +179,37 @@
     "disclaimer": "Descargo de responsabilidad: Este sitio web de ninguna manera está afiliado con Facebook o cualquier entidad de Facebook. Una vez que abandone Facebook, la responsabilidad ya no está en su sitio. No vendemos su correo electrónico.",
     "notice": "AVISO LEGAL: Antes de ir más lejos, por favor déjanos aclarar que nuestros resultados no son los típicos. Lo más probable es que no nos hayamos conocido. Vamos a mostrarte lo que funcionó bien para nosotros y esperamos que seas capaz de utilizar parte de la información que compartimos contigo para que puedas generar los resultados que personalmente deseas alcanzar. Así qué, si estás buscando una de esas ofertas 'hacerse millonario rápido por internet', esto no es para ti. Pero, si eres una 'persona emprendedora' que tiene alguna habilidad, un poco de sentido común, y la voluntad de trabajar para lo que quieres, esto definitivamente es para ti."
   },
+  "library": {
+    "books": "Libros",
+    "documentaries": "Documentales",
+    "videos": "Videos",
+    "audios": "Audios",
+    "download-content": "Contenido Descargable",
+    "audios-content": {
+      "the-cow": "La vaca",
+      "build-red": "Construyendo tu red",
+      "positive-approach": "Actitud mental positiva",
+      "success-puzzle": "Rompecabezas del éxito",
+      "winner-seminary": "Seminario para ganadores",
+      "make-it": "Crealo, si se puede",
+      "wish-mandate": "Tu deseo es mandato",
+      "records-royal": "Grabaciones mixlr Royal Green"
+    }
+  },
+  "training": {
+    "training-center": "Centro de enrenamientos",
+    "see-more": "Ver más",
+    "master-network-title": "MAestría en redes sociales por Eric Worre",
+    "master-network-description": "Todo lo que tienes que saber para volverte un experto en la prospección digital para multinivel",
+    "digital-propection-title": "Bases para la prospección digital",
+    "digital-prospection-description": "¿Nunca has trabajado usando internet a tu favor? este curso te enseñará a crear las bases para crear un negocio digital",
+    "organic-traffic-title": "Tráfico Orgánico",
+    "organic-traffic-description": "¿Sabes el potencial de Internet, pero no le sacas provecho por falta de recursos? aprende a crear tráfico sin pagar por el",
+    "pay-traffic-title": "Tráfico Pago",
+    "pay-traffic-description": "Te emociona Internet y quieres potenciar tu negocio a través de publicidad paga en Facebook e Instagram. Entra a este curso",
+    "bonds-title": "Bonos",
+    "bonds-description": "Sabemos que los obsequios te emocionan y más si son ¡Gratis! reclama aquí los bonos de marketing digital"
+  },
   "errors": {
     "wrong-pwd": "La contraseña ingresada es incorrecta",
     "user-not-found": "El usuario ingresado no existe en nuestros registros",
