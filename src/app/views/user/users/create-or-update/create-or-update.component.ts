@@ -76,6 +76,7 @@ export class CreateOrUpdateComponent implements OnInit, OnChanges, OnDestroy {
       ]),
       rePassword: new FormControl("", [
         Validators.required,
+        Validators.pattern(/((?=.*[0-9]+)(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[$&+,:;=?@#|'<>.^*()%!-]+)).{8,}/),
         Validators.minLength(8)
       ]),
       roles: new FormControl([]),
@@ -226,6 +227,7 @@ export class CreateOrUpdateComponent implements OnInit, OnChanges, OnDestroy {
    * Method for send the boolean for close the register modal
    */
   closeModal() {
+    this.isUpdate = false;
     this.ngOnDestroy();
   }
 

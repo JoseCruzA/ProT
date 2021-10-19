@@ -220,8 +220,7 @@
           [disabled]="userForm.invalid" *ngIf="!isUpdate">
           {{ 'office.users.create' | translate }}
         </button>
-        <button class="button button-submit" type="submit"
-          [disabled]="userForm.invalid" *ngIf="isUpdate">
+        <button class="button button-submit" type="submit" *ngIf="isUpdate">
           {{ 'office.users.update' | translate }}
         </button>
         <button class="button button-reset" type="reset"

@@ -10,6 +10,7 @@ export class TrainingComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

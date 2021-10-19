@@ -42,6 +42,7 @@ export class PromotionComponent implements OnInit, OnChanges {
   }
 
   onSubmit() {
+    console.log(this.createLink.get('campaign')?.value);
     let campaign = this.createLink.get('campaign')?.value;
     this.newLink = this.createLink.get('link')?.value + '/ref/' + this.userT.username + (campaign != '' ? '/camp/' + campaign : '');
   }
