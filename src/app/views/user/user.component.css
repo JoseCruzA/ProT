@@ -46,7 +46,7 @@
 }
 
 .card-image figure {
-  background-color: #009975;
+  background-color: #3A3E73;
 }
 
 .card-image figure img {
@@ -58,7 +58,7 @@ li a {
 }
 
 li.is-active a, li a:hover{
-  color: #009975;
+  color: #3A3E73;
 }
 
 .user-flag {
@@ -98,7 +98,7 @@ li.is-active a, li a:hover{
 }
 
 .is-active-drop {
-  color: #009975 !important;
+  color: #3A3E73 !important;
 }
 
 @media screen and (max-width: 730px) and (orientation: portrait) {

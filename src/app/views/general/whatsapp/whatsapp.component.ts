@@ -10,7 +10,7 @@ export class WhatsappComponent implements OnInit, OnChanges {
 
   @Input() user!: User;
   userT!: User;
-  uri = "https://api.whatsapp.com/send?phone={phone}&text=Hola, me gustaría tener más información sobre Royal Green.";
+  uri = "https://api.whatsapp.com/send?phone={phone}&text=Hola, me gustaría tener más información sobre Xifra.";
 
   constructor() { }
 

@@ -10,7 +10,7 @@
 .button-submit {
   display: block;
   margin-left: auto;
-  background: linear-gradient(290deg, #17E5B5 0%, #004D3B 92%);
+  background: linear-gradient(290deg, #5C62A0 0%, #3D4583 92%);
   color: #FFFFFF;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .button-reset:hover {
-  background: linear-gradient(290deg, #17E5B5 0%, #004D3B 92%);
+  background: linear-gradient(290deg, #5C62A0 0%, #3D4583 92%);
   color: #FFFFFF;
 }
 
