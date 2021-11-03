@@ -91,9 +91,10 @@
 }
 
 .slide-img.is-active {
-  box-shadow: 2px 2px 45px 15px rgba(0, 153, 117);
+  box-shadow: 2px 2px 45px 15px #505AA1E6;
   filter: blur(0px);
-  height: initial;
+  height: 380px;
+  width: 580px;
   cursor: default;
   z-index: 1 !important;
   transition: height 5s, left 5s;

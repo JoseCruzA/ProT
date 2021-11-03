@@ -4,7 +4,7 @@ import { json } from 'body-parser';
 import { Observable } from 'rxjs';
 import { Country } from '../models/country.model';
 
-const api = "https://restcountries.eu/"
+const api = "https://restcountries.com/v2/"
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +26,6 @@ export class CountryService {
    * @returns the countries
    */
   getData(): Observable<Country[]> {
-    return this.http.get<Country[]>(`${api}rest/v2/all?fields=callingCodes;translations;name;flag`);
+    return this.http.get<Country[]>(`${api}all?fields=callingCodes,translations,name,flag`);
   }
 }

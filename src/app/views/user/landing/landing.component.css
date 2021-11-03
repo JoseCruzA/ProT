@@ -65,6 +65,10 @@
   padding: 0 10vw 50px 10vw;
 }
 
+.video-explanation img {
+  height: 45vw;
+}
+
 video {
   box-shadow: 6px 3px 17px 4px #000000;
   width: 100%;
@@ -109,6 +113,10 @@ div {
 
 .whatsapp-button .title.is-3 {
   margin: 0;
+}
+
+.royal-compensation img {
+  height: 45vw;
 }
 
 @media screen and (max-width: 810px) {
