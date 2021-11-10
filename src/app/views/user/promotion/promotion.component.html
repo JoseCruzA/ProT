@@ -24,10 +24,10 @@
           <div class="control is-expanded">
             <div class="select is-fullwidth select-search">
               <select name="campaign" id="select-campaign" formControlName="campaign">
-                <option selected disabled>
+                <option selected disabled value="">
                   {{ 'office.users.select-campaign' | translate }}
                 </option>
-                <option id="{{ userT.username }}-{{ campaign.name }}" *ngFor="let campaign of userT.campaign">
+                <option id="{{ userT.username }}-{{ campaign.name }}" *ngFor="let campaign of userT.campaign" [value]="campaign.name">
                   {{ campaign.name }}
                 </option>
               </select>

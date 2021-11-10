@@ -11,7 +11,7 @@
 .section-events-color {
   width: 100%;
   height: 100%;
-  background: linear-gradient(290deg, rgba(0, 60, 46, 0.8) 0%, rgba(0, 153, 117, 0.8) 92%);
+  background: linear-gradient(290deg, rgba(59, 69, 132, 0.8) 0%, rgba(83, 95, 171, 0.8) 92%);
   border-top-left-radius: 150px;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .button-prev, .button-next, .button-month, .button-week, .button-day {
-  background: linear-gradient(290deg, #17E5B5 0%, #004D3B 92%);
+  background: linear-gradient(290deg, #5C62A0 0%, #3D4583 92%);
   color: #FFFFFF;
 }
 
@@ -55,7 +55,7 @@
 }
 
 .button-now:hover {
-  background: linear-gradient(290deg, #17E5B5 0%, #004D3B 92%);
+  background: linear-gradient(290deg, #5C62A0 0%, #3D4583 92%);
   color: #FFFFFF;
 }
 
@@ -68,13 +68,17 @@
 .btn-submit {
   display: block;
   margin-left: auto;
-  background: linear-gradient(290deg, #17E5B5 0%, #004D3B 92%);
+  background: linear-gradient(290deg, #5C62A0 0%, #3D4583 92%);
   color: #FFFFFF;
 }
 
 .btn-submit:hover {
   background: #FFFFFF;
   color: #000000;
+}
+
+.cal-month-view .cal-day-cell.cal-today {
+  background: rgba(83, 95, 171, 0.5) !important;
 }
 
 @media screen and (max-width: 1110px) and (orientation: landscape) {

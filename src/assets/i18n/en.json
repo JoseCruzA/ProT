@@ -1,10 +1,10 @@
 {
   "header": {
-    "home": "Home",
-    "about": "About Royal Green",
-    "events": "Events",
-    "library": "Library",
-    "training": "Training center"
+      "home": "Home",
+      "about": "About Xifra",
+      "events": "Events",
+      "library": "Library",
+      "training": "Training center"
   },
   "home": {
     "info-title": "Training and marketing system",
@@ -89,15 +89,15 @@
     "sunday": "Sunday"
   },
   "about": {
-    "what-is-title": "What's Royal Green?",
+    "what-is-title": "What's Xifra?",
     "what-is-desc": "Colombo-Mexican Company with corporative place in Mexico D.F",
-    "distribution-system": "Royal Green creates an effective dstribution system based on emerald mining, carving, jewellery creation and export of the same and in this way be able to distribute a percentage of the profits to its customers.",
+    "distribution-system": "Xifra creates an effective dstribution system based on emerald mining, carving, jewellery creation and export of the same and in this way be able to distribute a percentage of the profits to its customers.",
     "company-mission": "Our mission is give to our customers effective ways to get profits using our distribution system, so like the exclusive use of our gemstone.",
     "company-goal": "Our principal goal is to control the emerald and rare jewels market for the american, european and asian market, offering an aggressive but balanced payment plan.",
     "invest-title": "Invest in emeralds and earn in cryptocurrencies",
-    "invest-company": "<strong class='is-uppercase has-text-white'>Royal Green</strong> is the first company that creates an online investment system based on <strong class='first-upper has-text-white'>emeralds</strong> trade.",
+    "invest-company": "<strong class='is-uppercase has-text-white'>Xifra</strong> is the first company that creates an online investment system based on <strong class='first-upper has-text-white'>emeralds</strong> trade.",
     "our-company": "Our company is legally constituted in <strong class='has-text-white'>Mexico</strong> and it's regulated by the <strong class='has-text-white'>Fintech Lay</strong>. Actually we have corporative place in Mexico City, in the Polanco town, CONCRETA TOWER (9th floor).",
-    "commercial": "Royal Green make commercial activities with <strong class='has-text-white'>Colombian Emeralds</strong> under Strategic Partnership with recognized Companies in this guild.",
+    "commercial": "Xifra make commercial activities with <strong class='has-text-white'>Colombian Emeralds</strong> under Strategic Partnership with recognized Companies in this guild.",
     "package-created": "We've created a variety of <strong class='has-text-white'>investment</strong> packages, that give to our customers the posibility of invest since 50 USD to 50.000 USD and get automatic <strong class='has-text-white'>returns</strong> between 0,4% and 1% on weekdays, until complete <strong class='has-text-white'>200% of their investment</strong> (100% Equity, 100% Returns)",
     "pay-way": "All investements and withdrawals will be done in Bitcoin or USDT",
     "distribution-system-title": "Distribution system",
@@ -164,10 +164,10 @@
     "action-called": "Starts to live the life that you so desire",
     "be-part": "Be part of this",
     "new-era": "new era",
-    "what-do": "What does Royal Green do?",
+    "what-do": "What does Xifra do?",
     "what-do-list": "<ol style='text-align: start !important; display: inline-table !important; font-weight: bold;'><li><label style='font-weight: 100;'>Export</label> Colombian Emeralds.</li><li><label style='font-weight: 100;'>High end</label> Jewerly <label style='font-weight: 100;'>Factory in alliance with TM-90 Molina.</label></li><li><label style='font-weight: 100;'>Invest in long-term</label> Cryptocurencies.</li><li><label style='font-weight: 100;'>Creates Franchise Models:</label> Royal Store.</li><li><label style='font-weight: 100;'>Develops products based on Medical Cannabis:</label> Royal Life.</li></ol>",
-    "package-created": "Royal Green has created a variety of <strong>investment</strong> packages, that give to our customers the posibility of invest since 50 USD to 50.000 USD and get automatic <strong class='has-text-white'>returns</strong> between 0,4% and 1% on weekdays, until complete <strong>200% of their investment</strong> (100% Equity, 100% Returns) in a period betwen <strong>12 to 16 months</strong>.",
-    "royal-figure": "Royal Green is a company legally constituted under the heading 'Variable Capital Join Stock Company', authorized by the Ministry of Economy and the Ministry of Finance and Public Credit for work in México.",
+    "package-created": "Xifra has created a variety of <strong>investment</strong> packages, that give to our customers the posibility of invest since 50 USD to 50.000 USD and get automatic <strong class='has-text-white'>returns</strong> between 0,4% and 1% on weekdays, until complete <strong>200% of their investment</strong> (100% Equity, 100% Returns) in a period betwen <strong>12 to 16 months</strong>.",
+    "royal-figure": "Xifra is a company legally constituted under the heading 'Variable Capital Join Stock Company', authorized by the Ministry of Economy and the Ministry of Finance and Public Credit for work in México.",
     "more-info": "Do you need more info?",
     "contact-me": "Contact me at <strong style='color: #189D0E;'>Whatsapp</strong> doing click here",
     "click-here": "Do click here",
@@ -193,7 +193,7 @@
       "winner-seminary": "Winners Seminar",
       "make-it": "Create it, you can",
       "wish-mandate": "Your whish is mandate",
-      "records-royal": "Royal Green mixlr recordings"
+      "records-royal": "Xifra mixlr recordings"
     }
   },
   "training": {

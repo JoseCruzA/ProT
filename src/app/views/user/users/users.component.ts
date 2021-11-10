@@ -130,6 +130,7 @@ export class UsersComponent implements OnInit {
   close(value: boolean) {
     if (this.createOrUpdate) {
       this.createOrUpdate = false;
+      this.create = false;
     } else if (this.delete) {
       this.delete = false;
     }

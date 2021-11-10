@@ -65,11 +65,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #17967A;
+  background: #9AAEE3;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(290deg, #17E5B5 0%, #004D3B 92%);
+  background: linear-gradient(290deg, #5C62A0 0%, #3D4583 92%);
   border-radius: 50px;
 }
 
@@ -88,12 +88,12 @@ body {
 
 div.cal-current-time-marker {
   height: 3px;
-  background: linear-gradient(270deg, #00E5B0, #00664E);
+  background: linear-gradient(270deg, #5768B8, #2D3E84);
   background-size: 400% 400%;
 }
 
 .cal-open-day-events {
-  background: linear-gradient(290deg, #17E5B5 0%, #004D3B 92%);
+  background: linear-gradient(290deg, #5C62A0 0%, #3D4583 92%);
   color: #FFFFFF;
   font-family: "Raleway", sans-serif;
 }
@@ -104,6 +104,11 @@ div.cal-current-time-marker {
 
 .d-none {
   display: none;
+}
+
+.cal-month-view .cal-day-cell.cal-today,
+.cal-week-view .cal-header.cal-today {
+  background: rgba(103, 111, 160, 0.5);
 }
 
 @media screen and (min-width: 769px) and (orientation: portrait) {

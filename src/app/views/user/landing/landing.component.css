@@ -53,7 +53,7 @@
 }
 
 .title {
-  color: #009975;
+  color: #3A3E73;
   font-family: "Raleway-Bold", sans-serif;
 }
 
@@ -65,13 +65,17 @@
   padding: 0 10vw 50px 10vw;
 }
 
+.video-explanation img {
+  height: 45vw;
+}
+
 video {
   box-shadow: 6px 3px 17px 4px #000000;
   width: 100%;
 }
 
 .landing-footer {
-  background: linear-gradient(290deg, rgb(0, 153, 117) 0%, rgb(0, 60, 46) 92%);
+  background: linear-gradient(290deg, rgb(122, 109, 233) 0%, rgb(94, 61, 170) 92%);
   padding: 7vw;
 }
 
@@ -109,6 +113,10 @@ div {
 
 .whatsapp-button .title.is-3 {
   margin: 0;
+}
+
+.royal-compensation img {
+  height: 45vw;
 }
 
 @media screen and (max-width: 810px) {
@@ -153,7 +161,7 @@ div {
   }
 
   .whatsapp-button {
-    background: linear-gradient(290deg, rgb(0, 153, 117) 0%, rgb(0, 60, 46) 92%);
+    background: linear-gradient(290deg, rgb(122, 109, 233) 0%, rgb(94, 61, 170) 92%);
     padding: 20px 0 20px 0;
   }
 }

@@ -1,6 +1,6 @@
 
 .section-title {
-  color: #009975;
+  color: #3A3E73;
   font-family: "Raleway-Bold", sans-serif;
 }
 
@@ -98,7 +98,7 @@
 }
 
 .button-audio {
-  background: linear-gradient(290deg, #17E5B5 0%, #004D3B 92%);
+  background: linear-gradient(290deg, #5C62A0 0%, #3D4583 92%);
   color: #FFFFFF;
 }
 
@@ -108,7 +108,7 @@
 }
 
 .button-audio-royal:hover {
-  background: linear-gradient(290deg, #9bafaa 0%, #004D3B 92%);;
+  background: linear-gradient(290deg, #7e83b6 0%, #2f345e 92%);
   color: #FFFFFF;
 }
 
