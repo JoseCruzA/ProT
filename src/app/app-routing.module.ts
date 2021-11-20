@@ -6,8 +6,11 @@ import { AboutComponent } from './views/about/about.component';
 import { EventComponent } from './views/event/event.component';
 import { HomeComponent } from './views/home/home.component';
 import { LibraryComponent } from './views/library/library.component';
+import { TrainingComponent } from './views/training/training.component';
 import { LandingComponent } from './views/user/landing/landing.component';
 import { UserComponent } from './views/user/user.component';
+import { LessonsComponent } from './views/lessons/lessons.component';
+import { TopicComponent } from './views/topic/topic.component';
 
 const routes: Routes = [
   {
@@ -64,7 +67,6 @@ const routes: Routes = [
   },
   {
     path: "library",
-    canActivate: [LandingGuard],
     component: LibraryComponent
   },
   {
@@ -96,6 +98,48 @@ const routes: Routes = [
     path: "landing",
     component: LandingComponent
   },
+  {
+    path: "training/ref/:username/camp/:campaign",
+    canActivate: [LandingGuard],
+    component: TrainingComponent
+  },
+  {
+    path: "training/ref/:username",
+    canActivate: [LandingGuard],
+    component: TrainingComponent
+  },
+  {
+    path: "training",
+    component: TrainingComponent
+  },
+  {
+    path: "lessons/ref/:username/camp/:campaign",
+    canActivate: [LandingGuard],
+    component: LessonsComponent
+  },
+  {
+    path: "lessons/ref/:username",
+    canActivate: [LandingGuard],
+    component: LessonsComponent
+  },
+  {
+    path: "lessons",
+    loadChildren: () => import('./views/lessons/lessons.module').then(m => m.LessonsModule)
+  },
+  {
+    path:"topic/ref/:username/camp/:campaign",
+    canActivate: [LandingGuard],
+    component: TopicComponent
+  },
+  {
+    path:"topic/ref/:username",
+    canActivate: [LandingGuard],
+    component: TopicComponent
+  },
+  {
+    path:"topic",
+    loadChildren: () => import('./views/topic/topic.module').then(m => m.TopicModule)
+  }
 
 ];
 

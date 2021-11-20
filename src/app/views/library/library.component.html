@@ -1,4 +1,130 @@
-<h2>Integrate PDF File Viewer in Angular</h2>
-
-<pdf-viewer class="viewer-pdf" [src]="pdfSrc" [render-text]="true" (after-load-complete)="afterLoadPdf($event)">
-</pdf-viewer>
+<br><br><br><br>
+<section class="books has-text-centered">
+  <h1 class="section-title title is-uppercase">
+    {{ 'library.books' | translate }}
+  </h1>
+  <div class="columns">
+    <div *ngFor="let book of files; index as i">
+      <a class="column" *ngIf="i < 5" (click)="openPDF(book)">
+        <img src="{{ dir }}img/books/{{ book }}.jpg">
+      </a>
+    </div>
+  </div>
+  <img src="../../../assets/img/shelf_wood.png">
+  <div class="columns">
+    <div *ngFor="let book of files; index as i">
+      <a class="column" *ngIf="i >= 5 && i < 10" (click)="openPDF(book)">
+        <img src="{{ dir }}img/books/{{ book }}.jpg">
+      </a>
+    </div>
+  </div>
+  <img src="../../../assets/img/shelf_wood.png">
+  <div class="columns">
+    <div *ngFor="let book of files; index as i">
+      <a class="column" *ngIf="i >= 10 && i < 15" (click)="openPDF(book)">
+        <img src="{{ dir }}img/books/{{ book }}.jpg">
+      </a>
+    </div>
+  </div>
+  <img src="../../../assets/img/shelf_wood.png">
+</section>
+<section class="documentaries has-text-centered">
+  <h1 class="section-title title is-uppercase">
+    {{ 'library.documentaries' | translate }}
+  </h1>
+  <div class="columns">
+    <a href="https://youtu.be/OxptD-qcb-Y" class="column">
+      <img src="../../../assets/img/rise-entrepreneur.jpeg">
+    </a>
+    <a href="https://youtu.be/_OM-zx6ATZ4" class="column">
+      <img src="../../../assets/img/think-make-rich.jpeg">
+    </a>
+    <a href="https://youtu.be/iwIn0vqAjU4" class="column">
+      <img src="../../../assets/img/secret.jpeg">
+    </a>
+  </div>
+</section>
+<br>
+<section class="videos has-text-centered">
+  <h1 class="section-title title is-uppercase">
+    {{ 'library.videos' | translate }}
+  </h1>
+  <div class="carrousel">
+    <div class="carrousel-content">
+      <a href="https://youtu.be/09vIPfwerlY">
+        <img src="../../../assets/img/img-video1.jpg"/>
+      </a>
+      <a href="https://youtu.be/e_XzaS0m1Qk">
+        <img src="../../../assets/img/img-video2.jpg"/>
+      </a>
+      <a href="https://youtu.be/mxrkDNDEeAA">
+        <img src="../../../assets/img/img-video3.jpg"/>
+      </a>
+      <a href="https://youtu.be/dVKBI91ty4g">
+        <img src="../../../assets/img/img-video4.jpg"/>
+      </a>
+      <a href="https://youtu.be/MOV-LIbP0GA">
+        <img src="../../../assets/img/img-video5.jfif"/>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="audios has-text-centered">
+  <h1 class="section-title title is-uppercase">
+    {{ 'library.audios' | translate }}
+  </h1>
+  <div class="columns">
+    <div class="column">
+      <a href="https://go.ivoox.com/rf/427886" class="button button-audio">
+        {{ 'library.audios-content.the-cow' | translate }}
+      </a>
+    </div>
+    <div class="column">
+      <a href="https://go.ivoox.com/rf/990920" class="button button-audio">
+        {{ 'library.audios-content.build-red' | translate }}
+      </a>
+    </div>
+    <div class="column">
+      <a href="https://go.ivoox.com/rf/1495754" class="button button-audio">
+        {{ 'library.audios-content.positive-approach' | translate }}
+      </a>
+    </div>
+    <div class="column">
+      <a href="https://go.ivoox.com/rf/1035752" class="button button-audio">
+        {{ 'library.audios-content.success-puzzle' | translate }}
+      </a>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <a href="https://go.ivoox.com/rf/990996" class="button button-audio">
+        {{ 'library.audios-content.winner-seminary' | translate }}
+      </a>
+    </div>
+    <div class="column">
+      <a href="https://go.ivoox.com/rf/4351833" class="button button-audio">
+        {{ 'library.audios-content.make-it' | translate }}
+      </a>
+    </div>
+    <div class="column">
+      <a href="https://go.ivoox.com/rf/631298" class="button button-audio">
+        {{ 'library.audios-content.wish-mandate' | translate }}
+      </a>
+    </div>
+    <div class="column">
+      <a href="https://mixlr.com/royalgreen/showreel" class="button button-audio-royal">
+        {{ 'library.audios-content.records-Xifra' | translate }}
+      </a>
+    </div>
+  </div>
+</section>
+<br><br>
+<section class="download-content has-text-centered">
+  <h1 class="section-title title is-uppercase">
+    {{ 'library.download-content' | translate }}
+  </h1>
+  <a class="download-button" href="https://drive.google.com/drive/folders/1Doc5oXsYIrGhQK21kmSroJGGQVE-3MZD">
+    <img src="../../../assets/img/download-content.png">
+  </a>
+</section>
+<br>

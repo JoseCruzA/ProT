@@ -5,14 +5,14 @@
 }
 
 .navbar {
-  background: linear-gradient(290deg, rgba(0, 153, 117, 0.2) 0%, rgba(0, 60, 46, 0.2) 92%);
+  background: linear-gradient(290deg, rgba(65,85,139,0.9) 0%, rgba(65, 77, 133, 0.9) 92%);
   position: fixed;
   top: 0;
   width: 100%;
 }
 
 .navbar-strong {
-  background: linear-gradient(290deg, rgba(0, 153, 117, 0.9) 0%, rgba(0, 60, 46, 0.9) 92%);
+  background: linear-gradient(290deg, rgb(80, 90, 161, 0.9) 0%, rgb(48, 60, 122, 0.9) 92%);
 }
 
 .navbar-item {
@@ -39,7 +39,7 @@
 }
 
 #account-icon.has-dropdown .navbar-dropdown {
-  background: linear-gradient(290deg, rgba(0, 153, 117, 0.9) 0%, rgba(0, 60, 46, 0.9) 92%);
+  background: linear-gradient(290deg, rgb(80, 90, 161, 0.9) 0%, rgb(48, 60, 122, 0.9) 92%);
 }
 
 #account-icon-mobile {
@@ -51,7 +51,7 @@
 }
 
 #account-icon-mobile .dropdown.is-right .dropdown-menu .dropdown-content {
-  background: linear-gradient(290deg, rgba(0, 153, 117, 0.9) 0%, rgba(0, 60, 46, 0.9) 92%);
+  background: linear-gradient(290deg, rgb(80, 90, 161, 0.9) 0%, rgb(48, 60, 122, 0.9) 92%);
   font-family: "Raleway-SemiBold", sans-serif;
 }
 
@@ -65,7 +65,7 @@
 
 @media screen and (max-width: 1023px) {
   .navbar-menu {
-    background: linear-gradient(290deg, rgb(81, 126, 115) 0%, rgb(0, 60, 46) 92%);
+    background: linear-gradient(290deg, rgb(80, 90, 161) 0%, rgb(48, 60, 122) 92%);
     text-align: center;
   }
 

@@ -5,7 +5,7 @@
   width: 100%;
   padding: 20px;
   color: #FFFFFF;
-  background: linear-gradient(290deg, rgb(0, 153, 117) 0%, rgb(0, 60, 46) 92%)
+  background: linear-gradient(290deg, rgba(65,85,139) 0%, rgba(65, 77, 133) 92%);
 }
 
 .footer>p {

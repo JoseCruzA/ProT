@@ -3,17 +3,17 @@
 }
 
 .column-left {
-  border-left: 1px solid #009975;
+  border-left: 1px solid #3A3E73;
 }
 
 .column-right {
-  border-right: 1px solid #009975;
+  border-right: 1px solid #3A3E73;
 }
 
 .button-submit {
   font-family: "Raleway-SemiBold", sans-serif;
   border-radius: 10vw;
-  background: linear-gradient(290deg, #17E5B5 0%, #004D3B 92%);
+  background: linear-gradient(290deg, #5C62A0 0%, #3D4583 92%);
   color: #FFFFFF;
 }
 
@@ -52,12 +52,12 @@ input.input:focus {
 
 @media screen and (max-width: 730px) {
   .column-left {
-    border-top: 1px solid #009975;
+    border-top: 1px solid #3A3E73;
     border-left: none;
   }
 
   .column-right {
-    border-bottom: 1px solid #009975;
+    border-bottom: 1px solid #3A3E73;
     border-right: none;
   }
 }

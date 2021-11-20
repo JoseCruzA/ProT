@@ -1,0 +1,201 @@
+.tittle-section{
+    background-color: #4B568F;
+    color: white;
+    font-weight: 800;
+    padding: 20px 22px;
+    border-radius: 8px;
+}
+.img-order{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.lesson-topic-list{
+    box-sizing: border-box;
+}
+.learndash-wrapper{
+    border-bottom: 2px solid #e2e7ed;
+}
+.post-order{
+    margin-top: 2em;
+}
+.lb-tabs{
+    margin: 1em 0;
+}
+.lb-tabs-content{
+    margin-bottom: 0.5em;
+}
+.entry-tittle{
+    font-size: 1.6rem;
+    line-height: 1.4;
+    margin-bottom: 0.2em;
+    font-weight: 400;
+    color: black;
+    font-weight: bold;
+
+}
+.list-items{
+    padding: 5px 20px;
+    border: 2px solid #e2e7ed;
+    border-top: 0;
+    border-bottom: 0;
+    font-size: 1.2em;
+    overflow: hidden;
+}
+.ld-video{
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+.ld-video iframe{
+    position:absolute;
+    max-width: 100%;
+    top: 0;
+    left: 0;
+    width: 100%!important;
+    height: 100%;
+}
+.list-footer{
+    background: transparent;
+    padding: 0;
+    background: #e2e7ed;
+    padding: 5px;
+}
+.ld-table-list-item-preview{
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: flex-start;
+    color: #333;
+    padding: 5px 10px;
+    overflow-wrap: break-word;
+}
+.ld-topic-status{
+    border-radius: 6px;
+    background: #f0f3f6;
+    overflow: hidden;
+}
+.ld-status-icon{
+    border: 4px solid #e2e7ed;
+    background-color: #fff;
+    flex-basis: 26px;
+    flex-shrink: 0;
+    height: 26px;
+    width: 26px;
+    border-radius: 100%;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+.ld-breadcrumbs{
+    background: #f0f3f6;
+    border-radius: 6px;
+    padding: 0.5em 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ld-breadcrumbs-segments{
+    background: #f0f3f6;
+    border-radius: 6px;
+    padding: 0.5em 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ld-breadcrumbs-segments a{
+    color: rgb(81, 80, 168);
+    text-decoration: none;
+}
+.in-progress{
+    background: #4B568F;
+    color: #fff;
+    border-radius: 18px;
+    padding: 5px 10px;
+}
+.ld-progress{
+    padding: 0 1em;
+    display: flex;
+    flex-direction: column;
+    margin: 1em 0;
+}
+.ld-progress-heading{
+    display: flex;
+    justify-content: space-between;
+    font-size: .75em;
+    line-height: 1em;
+}
+.ld-progress-label{
+    text-transform: uppercase;
+    font-weight: 800;
+}
+.ld-progress-stats{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+}
+.ld-progress-porcentage{
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #019e7c;
+    margin-right: 1.5em;
+}
+.ld-progress-bar{
+    height: 7px;
+    background-color: #fff;
+    border-radius: 7px;
+    margin: 5px 0;
+    overflow: hidden;
+}
+.ld-tabs{
+    margin: 1em 0;
+}
+.ld-tab-content-visible{
+    display: block;
+    padding: 0;
+}
+
+.content-actions{
+    clear: both;
+    border-top: 2px solid #e2e7ed;
+    padding: 1em 0;
+    display: flex;
+    justify-content: space-between;
+}
+.content-action{
+    position: relative;
+    padding: 5px;
+}
+.ld-button{
+    margin: 0;
+    border-radius: 20px;
+    background-color: #4B568F;
+    color: #fff;
+    box-shadow: none;
+    text-transform: none;
+    font-family: inherit;
+    font-weight: 800;
+    font-size: .75em;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    width: 100%;
+    max-width: 385px;
+    white-space: normal;
+    text-shadow: none;
+    border: 0;
+    opacity: 1;
+    transition: opacity .3s ease;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 1em;
+    line-height: 1.25em;
+}

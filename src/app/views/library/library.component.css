@@ -1,0 +1,148 @@
+
+.section-title {
+  color: #3A3E73;
+  font-family: "Raleway-Bold", sans-serif;
+}
+
+.books .columns {
+  align-items: baseline;
+  margin: 0 auto -15px;
+  width: 42vw;
+  display: flex;
+}
+
+.books .columns div {
+  z-index: 1;
+}
+
+.books .columns .column img {
+  width: 7vw;
+}
+
+.books .columns .column {
+  padding-bottom: 0;
+}
+
+.documentaries .columns {
+  width: 100%;
+}
+
+.documentaries .columns .column img {
+  border-radius: 20px;
+}
+
+.videos {
+  min-height: 340px;
+}
+
+.carrousel {
+  width: 250px;
+  perspective: 900px;
+  position: relative;
+  margin: auto;
+}
+
+.carrousel-content {
+  width: 100%;
+  position: absolute;
+  animation: rotate 25s infinite linear;
+  transform-style: preserve-3d;
+}
+
+.carrousel-content:hover {
+  animation-play-state: paused;
+}
+
+.carrousel-content a {
+  position: absolute;
+  height: 100%;
+}
+
+.carrousel-content a img {
+  height: 180px;
+  width: 140px;
+  box-shadow: 1px 1px 9px 3px #000000;
+}
+
+.carrousel-content a img:hover {
+  transform: scale(1.2);
+  transition: all 500ms;
+}
+
+.carrousel-content a:nth-child(1) {
+  transform: rotateY(0deg) translateZ(200px);
+}
+
+.carrousel-content a:nth-child(2) {
+  transform: rotateY(72deg) translateZ(200px);
+}
+
+.carrousel-content a:nth-child(3) {
+  transform: rotateY(144deg) translateZ(200px);
+}
+
+.carrousel-content a:nth-child(4) {
+  transform: rotateY(216deg) translateZ(200px);
+}
+
+.carrousel-content a:nth-child(5) {
+  transform: rotateY(288deg) translateZ(200px);
+}
+
+.button {
+  margin: 0 10px 0 10px;
+  border-radius: 10vw;
+  width: fit-content;
+  font-size: 2.3vh;
+  font-family: "Raleway-SemiBold", sans-serif;
+}
+
+.button-audio {
+  background: linear-gradient(290deg, #5C62A0 0%, #3D4583 92%);
+  color: #FFFFFF;
+}
+
+.button-audio:hover {
+  background: #FFFFFF;
+  color: #000000 !important;
+}
+
+.button-audio-royal:hover {
+  background: linear-gradient(290deg, #7e83b6 0%, #2f345e 92%);
+  color: #FFFFFF;
+}
+
+.download-button img {
+  width: 200px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .columns {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .books .columns {
+    margin: 0 auto -10px;
+    width: max-content;
+  }
+
+  .books .columns .column {
+    padding: 0.25rem;
+    padding-bottom: 0;
+  }
+
+  .books .columns .column img {
+    width: 15vw;
+  }
+}
