@@ -55,10 +55,6 @@ export class LandingComponent implements OnInit {
       pack!.innerHTML = res;
     });
 
-    this.translateService.get('landing.what-do-list').subscribe((res: string) => {
-      list!.innerHTML = res;
-    });
-
     this.translateService.get('landing.contact-me').subscribe((res: string) => {
       contact!.innerHTML = res;
     });
