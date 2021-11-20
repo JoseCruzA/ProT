@@ -11,11 +11,8 @@
       <h1 class="card-header-title title is-uppercase has-text-centered" *ngIf="selected === 'about'">
         {{ 'about.invest-title' | translate }}
       </h1>
-      <h1 class="card-header-title title is-uppercase has-text-centered" *ngIf="selected === 'system'">
-        {{ 'about.distribution-system-title' | translate }}
-      </h1>
-      <h1 class="card-header-title title is-uppercase has-text-centered" *ngIf="selected === 'partners'">
-        {{ 'about.partnership' | translate }}
+      <h1 class="card-header-title title is-uppercase has-text-centered" *ngIf="selected === 'ecosystem'">
+        {{ 'about.ecosystem' | translate }}
       </h1>
       <h1 class="card-header-title title is-uppercase has-text-centered" *ngIf="selected === 'corporative'">
         {{ 'about.corporative' | translate }}
@@ -36,7 +33,7 @@
     <div class="card-content">
       <div class="content">
         <div id="known-section" *ngIf="selected === 'known'">
-          <video class="section-about-video" src="../../../assets/video/royal-presentation.mp4" controls
+          <video class="section-about-video" src="../../../assets/video/xifra-presentation.mp4" controls
             controlslist="nodownload" poster="../../../assets/img/poster.png">
           </video>
         </div>
@@ -62,11 +59,8 @@
           {{ getAboutText() }}
           <p id="royal-invest" class="has-text-white"></p>
         </div>
-        <div class="system-section" *ngIf="selected === 'system'">
-          <img class="only-img" src="../../assets/img/distribution-system.png">
-        </div>
-        <div class="partners-section" *ngIf="selected === 'partners'">
-          <img class="only-img" src="../../assets/img/partnership.png">
+        <div class="ecosystem-section" *ngIf="selected === 'ecosystem'">
+          <img class="only-img" src="../../assets/img/ecosystem.jpeg">
         </div>
         <div class="corporative-section" *ngIf="selected === 'corporative'">
           <img class="only-img" src="../../assets/img/corporative.png">
@@ -130,9 +124,9 @@
           {{ 'about.system' | translate }}
         </a>
       </li>
-      <li [ngClass]="{'is-active': selected === 'partners'}">
-        <a (click)="changeView('partners')">
-          {{ 'about.partners' | translate }}
+      <li [ngClass]="{'is-active': selected === 'ecosystem'}">
+        <a (click)="changeView('ecosystem')">
+          {{ 'about.ecosystem' | translate }}
         </a>
       </li>
       <li [ngClass]="{'is-active': selected === 'corporative'}">

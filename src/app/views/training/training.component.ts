@@ -14,7 +14,7 @@ import { TranslateService } from '@ngx-translate/core';
  * @version 1.0
  */
 export class TrainingComponent implements OnInit {
-  
+
   selected: string;
   constructor(private translateService: TranslateService) {
     this.selected = 'known';

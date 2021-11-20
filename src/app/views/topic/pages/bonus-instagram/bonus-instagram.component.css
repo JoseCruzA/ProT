@@ -32,7 +32,7 @@
     font-weight: 400;
     color: black;
     font-weight: bold;
-    
+
 }
 .list-items{
     padding: 5px 20px;
@@ -40,7 +40,7 @@
     border-top: 0;
     border-bottom: 0;
     font-size: 1.2em;
-    overflow: hidden;   
+    overflow: hidden;
 }
 .ld-video{
     position: relative;
@@ -134,7 +134,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    
+
 }
 .ld-progress-porcentage{
     text-transform: uppercase;

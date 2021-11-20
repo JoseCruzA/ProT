@@ -8,7 +8,7 @@
   },
   "home": {
     "info-title": "Training and marketing system",
-    "info-subtitle": "Duplication System for ProT partners",
+    "info-subtitle": "Duplication System for ProT ecosystem",
     "learn-system": "Learn to use our system"
   },
   "footer": {
@@ -90,18 +90,17 @@
   },
   "about": {
     "what-is-title": "What's Xifra?",
-    "what-is-desc": "Colombo-Mexican Company with corporative place in Mexico D.F",
-    "distribution-system": "Xifra creates an effective dstribution system based on emerald mining, carving, jewellery creation and export of the same and in this way be able to distribute a percentage of the profits to its customers.",
-    "company-mission": "Our mission is give to our customers effective ways to get profits using our distribution system, so like the exclusive use of our gemstone.",
-    "company-goal": "Our principal goal is to control the emerald and rare jewels market for the american, european and asian market, offering an aggressive but balanced payment plan.",
-    "invest-title": "Invest in emeralds and earn in cryptocurrencies",
-    "invest-company": "<strong class='is-uppercase has-text-white'>Xifra</strong> is the first company that creates an online investment system based on <strong class='first-upper has-text-white'>emeralds</strong> trade.",
-    "our-company": "Our company is legally constituted in <strong class='has-text-white'>Mexico</strong> and it's regulated by the <strong class='has-text-white'>Fintech Lay</strong>. Actually we have corporative place in Mexico City, in the Polanco town, CONCRETA TOWER (9th floor).",
-    "commercial": "Xifra make commercial activities with <strong class='has-text-white'>Colombian Emeralds</strong> under Strategic Partnership with recognized Companies in this guild.",
-    "package-created": "We've created a variety of <strong class='has-text-white'>investment</strong> packages, that give to our customers the posibility of invest since 50 USD to 50.000 USD and get automatic <strong class='has-text-white'>returns</strong> between 0,4% and 1% on weekdays, until complete <strong class='has-text-white'>200% of their investment</strong> (100% Equity, 100% Returns)",
+    "what-is-desc": "Xifra Group is a disruptive and innovative company with global presence",
+    "distribution-system": "Xifra creates an intelligent and decentralized ecosystem based on Blockchain technology.",
+    "company-mission": "Our mission is to educate and provide tools to our community members to accelerate their transition to the global trends that are already leading the way into the future.",
+    "company-goal": "Our main goal is to be a benchmark in the development of innovative models, with the best and most efficient technology in the sector.",
+    "invest-title": "The world is evolving too fast.",
+    "invest-company": "<strong class='is-uppercase has-text-white'>Xifra</strong> offers you an expanded catalogue in continuous growth of services that impact <strong class='first-upper has-text-white'>Significantly in different areas of life</strong> of our users.",
+    "our-company": "Our company works with <strong class='has-text-white'>Cutting-edge technology</strong> through <strong class='has-text-white'>Our Software,</strong> unique in the market, which allows to automate, optimize and test strategies up to x200 times faster.",
+    "commercial": "Through <strong class='has-text-white'>IA</strong> we can test a lot of different strategies in a short period of time to identify the best results according to the market and be able to execute them in an automated way in the Crypto Pool.",
+    "package-created": "Xifra is creating the first <strong class='has-text-white'>DeFi</strong> protocol through <strong class='has-text-white'>Sharing Economy.</strong>",
     "pay-way": "All investements and withdrawals will be done in Bitcoin or USDT",
     "distribution-system-title": "Distribution system",
-    "partnership": "Partnership",
     "corporative": "Corporative",
     "investments": "Investments",
     "rewards": "Rewards",
@@ -113,7 +112,7 @@
     "what-is": "What's?",
     "about": "About",
     "system": "System",
-    "partners": "Partners",
+    "ecosystem": "Ecosystem",
     "invest": "Invest",
     "start": "Start",
     "compensation": "Compensation",
@@ -165,9 +164,9 @@
     "be-part": "Be part of this",
     "new-era": "new era",
     "what-do": "What does Xifra do?",
-    "what-do-list": "<ol style='text-align: start !important; display: inline-table !important; font-weight: bold;'><li><label style='font-weight: 100;'>Export</label> Colombian Emeralds.</li><li><label style='font-weight: 100;'>High end</label> Jewerly <label style='font-weight: 100;'>Factory in alliance with TM-90 Molina.</label></li><li><label style='font-weight: 100;'>Invest in long-term</label> Cryptocurencies.</li><li><label style='font-weight: 100;'>Creates Franchise Models:</label> Royal Store.</li><li><label style='font-weight: 100;'>Develops products based on Medical Cannabis:</label> Royal Life.</li></ol>",
+    "what-do-list": "<ol style='text-align: start !important; display: inline-table !important; font-weight: bold;'><li><label style='font-weight: 100;'>Export</label> Colombian Emeralds.</li><li><label style='font-weight: 100;'>High end</label> Jewerly <label style='font-weight: 100;'>Factory in alliance with TM-90 Molina.</label></li><li><label style='font-weight: 100;'>Invest in long-term</label> Cryptocurencies.</li><li><label style='font-weight: 100;'>Creates Franchise Models:</label> Xifra Store.</li><li><label style='font-weight: 100;'>Develops products based on Medical Cannabis:</label> Xifra Life.</li></ol>",
     "package-created": "Xifra has created a variety of <strong>investment</strong> packages, that give to our customers the posibility of invest since 50 USD to 50.000 USD and get automatic <strong class='has-text-white'>returns</strong> between 0,4% and 1% on weekdays, until complete <strong>200% of their investment</strong> (100% Equity, 100% Returns) in a period betwen <strong>12 to 16 months</strong>.",
-    "royal-figure": "Xifra is a company legally constituted under the heading 'Variable Capital Join Stock Company', authorized by the Ministry of Economy and the Ministry of Finance and Public Credit for work in México.",
+    "Xifra-figure": "Xifra is a company legally constituted under the heading 'Variable Capital Join Stock Company', authorized by the Ministry of Economy and the Ministry of Finance and Public Credit for work in México.",
     "more-info": "Do you need more info?",
     "contact-me": "Contact me at <strong style='color: #189D0E;'>Whatsapp</strong> doing click here",
     "click-here": "Do click here",
@@ -193,7 +192,7 @@
       "winner-seminary": "Winners Seminar",
       "make-it": "Create it, you can",
       "wish-mandate": "Your whish is mandate",
-      "records-royal": "Xifra mixlr recordings"
+      "records-Xifra": "Xifra mixlr recordings"
     }
   },
   "training": {
