@@ -53,6 +53,15 @@
     margin: 5px 5px 5px 5px;
 }
 
+@media screen and  (max-width: 1220px)  {
+    .row {
+      flex-direction: column;
+    }
+    .contenedor{
+        flex-direction: column;
+    }
+
+}
 
 
 
