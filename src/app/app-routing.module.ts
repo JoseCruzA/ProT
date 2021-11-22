@@ -114,31 +114,33 @@ const routes: Routes = [
   },
   {
     path: "lessons/ref/:username/camp/:campaign",
-    canActivate: [LandingGuard],
+    canActivate: [LandingGuard, OfficeGuard],
     component: LessonsComponent
   },
   {
     path: "lessons/ref/:username",
-    canActivate: [LandingGuard],
+    canActivate: [LandingGuard, OfficeGuard],
     component: LessonsComponent
   },
   {
     path: "lessons",
-    loadChildren: () => import('./views/lessons/lessons.module').then(m => m.LessonsModule)
+    loadChildren: () => import('./views/lessons/lessons.module').then(m => m.LessonsModule),
+    canActivate: [OfficeGuard]
   },
   {
     path:"topic/ref/:username/camp/:campaign",
-    canActivate: [LandingGuard],
+    canActivate: [LandingGuard, OfficeGuard],
     component: TopicComponent
   },
   {
     path:"topic/ref/:username",
-    canActivate: [LandingGuard],
+    canActivate: [LandingGuard, OfficeGuard],
     component: TopicComponent
   },
   {
     path:"topic",
-    loadChildren: () => import('./views/topic/topic.module').then(m => m.TopicModule)
+    loadChildren: () => import('./views/topic/topic.module').then(m => m.TopicModule),
+    canActivate: [OfficeGuard]
   }
 
 ];
