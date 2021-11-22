@@ -36,7 +36,7 @@ import { UseSocialMediaComponent } from './pages/use-social-media/use-social-med
 import { DuplicateSocialMediaComponent } from './pages/duplicate-social-media/duplicate-social-media.component';
 import { Bonus1Component } from './pages/bonus1/bonus1.component';
 import { Bonus2Component } from './pages/bonus2/bonus2.component';
-import { OfficeGuard } from 'src/app/guards/office.guard';
+import { CourseGuard } from 'src/app/guards/course.guard';
 
 const routes: Routes = [
   {
@@ -79,7 +79,7 @@ const routes: Routes = [
       { path: 'bonus1', component: Bonus1Component },
       { path: 'bonus2', component: Bonus2Component },
     ],
-    canActivate: [OfficeGuard]
+    canActivate: [CourseGuard]
   }
 ];
 

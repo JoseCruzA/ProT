@@ -6,16 +6,7 @@ import { AuthService } from '../services/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-
-/**
- * Guard Class for office acces
- *
- * @author Jose Cruz
- * @version 1.0
- */
-export class OfficeGuard implements CanActivate {
-
-  data!: string;
+export class CourseGuard implements CanActivate {
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -24,10 +15,11 @@ export class OfficeGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
       return this.authService.validateLogin().toPromise().then(res => {
-          return true;
-        }).catch(err => {
-          window.location.replace('/');
-          return false;
-        });
+        return true;
+      }).catch(err => {
+        window.location.replace('/training');
+        return false;
+      });
   }
+
 }

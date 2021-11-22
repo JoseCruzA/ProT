@@ -1,3 +1,8 @@
+.section-title {
+  color: #3A3E73;
+  font-family: "Raleway-Bold", sans-serif;
+}
+
 .contenedor{
     min-height: 100vh;
 	width: 100%;
