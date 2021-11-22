@@ -119,11 +119,6 @@
           {{ 'about.about' | translate }}
         </a>
       </li>
-      <li [ngClass]="{'is-active': selected === 'system'}">
-        <a (click)="changeView('system')">
-          {{ 'about.system' | translate }}
-        </a>
-      </li>
       <li [ngClass]="{'is-active': selected === 'ecosystem'}">
         <a (click)="changeView('ecosystem')">
           {{ 'about.ecosystem' | translate }}

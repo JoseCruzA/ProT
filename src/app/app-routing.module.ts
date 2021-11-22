@@ -11,6 +11,7 @@ import { LandingComponent } from './views/user/landing/landing.component';
 import { UserComponent } from './views/user/user.component';
 import { LessonsComponent } from './views/lessons/lessons.component';
 import { TopicComponent } from './views/topic/topic.component';
+import { CourseGuard } from './guards/course.guard';
 
 const routes: Routes = [
   {
@@ -114,31 +115,33 @@ const routes: Routes = [
   },
   {
     path: "lessons/ref/:username/camp/:campaign",
-    canActivate: [LandingGuard],
+    canActivate: [LandingGuard, CourseGuard],
     component: LessonsComponent
   },
   {
     path: "lessons/ref/:username",
-    canActivate: [LandingGuard],
+    canActivate: [LandingGuard, CourseGuard],
     component: LessonsComponent
   },
   {
     path: "lessons",
-    loadChildren: () => import('./views/lessons/lessons.module').then(m => m.LessonsModule)
+    loadChildren: () => import('./views/lessons/lessons.module').then(m => m.LessonsModule),
+    canActivate: [CourseGuard]
   },
   {
     path:"topic/ref/:username/camp/:campaign",
-    canActivate: [LandingGuard],
+    canActivate: [LandingGuard, CourseGuard],
     component: TopicComponent
   },
   {
     path:"topic/ref/:username",
-    canActivate: [LandingGuard],
+    canActivate: [LandingGuard, CourseGuard],
     component: TopicComponent
   },
   {
     path:"topic",
-    loadChildren: () => import('./views/topic/topic.module').then(m => m.TopicModule)
+    loadChildren: () => import('./views/topic/topic.module').then(m => m.TopicModule),
+    canActivate: [CourseGuard]
   }
 
 ];
