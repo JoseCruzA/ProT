@@ -16,3 +16,8 @@
   color: rgba(255, 255, 255, 0.3);
   font-family: "Raleway-Thin", sans-serif;
 }
+@media screen and  (max-width: 470px) {
+  .footer {
+    width: 100vh;
+  }
+}
