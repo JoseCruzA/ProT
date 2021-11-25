@@ -16,12 +16,26 @@ import { TranslateService } from '@ngx-translate/core';
 export class AboutComponent implements OnInit {
   selected: string;
   selectedImage?: string;
+  images = new Array();
+  imgs : Array<string> = ['../../../assets/img/poster.png', '../../assets/img/office.jpeg',
+    '../../assets/img/ecosystem.jpeg', '../../assets/img/corporative.png', '../../assets/img/investment-1.png',
+    '../../assets/img/investment-2.png', '../../assets/img/investment-3.png', '../../assets/img/investment-5.png',
+    '../../assets/img/start-with-us.png', '../../assets/img/rewards.png', '../../assets/img/terms.png'];
 
   constructor(private translateService: TranslateService) {
     this.selected = 'known';
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.pload(this.imgs);
+  }
+
+  pload(imgs: Array<string>):void {
+    for (var i = 0; i < imgs.length; i++) {
+      this.images[i] = new Image();
+      this.images[i].src = imgs[i];
+    }
+  }
 
   /**
    * Method that gets the selected image in a slider

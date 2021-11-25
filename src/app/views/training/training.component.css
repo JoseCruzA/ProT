@@ -1,72 +1,67 @@
-.section-title {
-  color: #3A3E73;
+.tittleTraining {
+  color: #3a3e73;
   font-family: "Raleway-Bold", sans-serif;
+  text-align: center;
 }
 
-.contenedor{
-    min-height: 100vh;
-	width: 100%;
-	display: flex;
-	align-items: center;
-	position: relative;
-	flex-direction: row;
-    justify-content: center;
-    margin: 15px 15px 15px 15px;
+.contenedor {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  margin: 15px 15px 15px 15px;
+}
+.card {
+  width: 420px;
+  height: 560px;
+  align-items: center;
+  justify-content: center;
+  background-color: #e5e2e2;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #000000;
+  margin: 15px 15px 15px 15px;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 15px 15px 15px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.tittleTraining {
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  display: flex;
+  font-size: 45px;
+  font-weight: bold;
+  color: #000000;
+  margin: 15px 15px 15px 15px;
+  text-transform: uppercase;
+}
+.content {
+  align-items: center;
+}
+.button {
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #000000;
+  margin: 5px 5px 5px 5px;
+}
 
-}
-.card{
-    width: 420px;
-    height: 560px;
-    align-items: center;
-    justify-content: center;
-    background-color: #e5e2e2;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px #000000;
-    margin: 15px 15px 15px 15px;
-}
-.column{
-    display: flex;
+@media screen and (max-width: 1220px) {
+  .row {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 15px 15px 15px 15px;
+  }
+  .contenedor {
+    flex-direction: column;
+  }
 }
-.row{
-    display: flex;
-    flex-direction: row;
-
-}
-.tittleTraining{
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    display: flex;
-    font-size: 45px;
-    font-weight: bold;
-    color: #000000;
-    margin: 15px 15px 15px 15px;
-    text-transform: uppercase;
-}
-.content{
-    align-items: center;
-}
-.button{
-    width: 100%;
-    height: 40px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px #000000;
-    margin: 5px 5px 5px 5px;
-}
-
-@media screen and  (max-width: 1220px)  {
-    .row {
-      flex-direction: column;
-    }
-    .contenedor{
-        flex-direction: column;
-    }
-
-}
-
-
-
