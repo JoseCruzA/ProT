@@ -1,7 +1,6 @@
-.tittleTraining {
+.tittleTraining h1 {
   color: #3a3e73;
   font-family: "Raleway-Bold", sans-serif;
-  text-align: center;
 }
 
 .contenedor {
@@ -35,17 +34,7 @@
   display: flex;
   flex-direction: row;
 }
-.tittleTraining {
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  display: flex;
-  font-size: 45px;
-  font-weight: bold;
-  color: #000000;
-  margin: 15px 15px 15px 15px;
-  text-transform: uppercase;
-}
+
 .content {
   align-items: center;
 }
@@ -63,5 +52,12 @@
   }
   .contenedor {
     flex-direction: column;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .card {
+    width: auto;
+    height: auto;
   }
 }
