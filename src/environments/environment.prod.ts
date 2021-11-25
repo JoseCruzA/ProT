@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  API_PATH: "https://api.protsystem.club/api/"
+  API_PATH: "https://apidev.protsystem.club/api/"
 };
