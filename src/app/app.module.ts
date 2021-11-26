@@ -80,6 +80,9 @@ import { UseSocialMediaComponent } from './views/topic/pages/use-social-media/us
 import { DuplicateSocialMediaComponent } from './views/topic/pages/duplicate-social-media/duplicate-social-media.component';
 import { Bonus1Component } from './views/topic/pages/bonus1/bonus1.component';
 import { Bonus2Component } from './views/topic/pages/bonus2/bonus2.component';
+import { RecoverComponent } from './views/modal/recover/recover.component';
+import { SimpleNotificationsModule } from 'angular2-notifications';
+
 /**
  * Function that generate the translate loader and
  * say it where are the translation files
@@ -159,7 +162,8 @@ export function rootLoaderFactory(http: HttpClient) {
     UseSocialMediaComponent,
     DuplicateSocialMediaComponent,
     Bonus1Component,
-    Bonus2Component
+    Bonus2Component,
+    RecoverComponent
   ],
   imports: [
     BrowserModule,
@@ -180,7 +184,8 @@ export function rootLoaderFactory(http: HttpClient) {
     PdfViewerModule,
     FormsModule,
     ReactiveFormsModule,
-    DataTablesModule
+    DataTablesModule,
+    SimpleNotificationsModule.forRoot()
   ],
   providers: [
     Title,

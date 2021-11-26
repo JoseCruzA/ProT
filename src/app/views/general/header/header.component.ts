@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
   activeAccount: boolean = false;
   toRegister: boolean = false;
   toLogin: boolean = false;
+  toRecover: boolean = false;
   token!: string;
 
   constructor(private location : Location, private authService: AuthService, private router: Router) {
@@ -72,7 +73,19 @@ export class HeaderComponent implements OnInit {
    */
   setToLogin(value: boolean) {
     this.toRegister = false;
+    this.toRecover = false;
     this.toLogin = value;
+  }
+
+  /**
+   * Method that set the value for open or close th recover modal
+   *
+   * @param value
+   */
+   setToRecover(value: boolean) {
+    this.toRegister = false;
+    this.toLogin = false;
+    this.toRecover = value;
   }
 
   /**

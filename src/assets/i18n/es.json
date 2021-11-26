@@ -22,6 +22,7 @@
     "page-title": "ProT System | Sistema de negocios",
     "no-support": "Tu navegador no soporta este elemento",
     "cancel": "Cancelar",
+    "send": "Enviar",
     "firstname": "Nombre",
     "lastname": "Apellido",
     "username": "Nombre de usuario",
@@ -32,13 +33,15 @@
     "re-pass": "Confirmar Contraseña",
     "agree": "Estoy de acuerdo con los",
     "sel-country": "Selecciona un país...",
-    "have-account": "Ya tienes una cuenta?",
-    "have-no-account": "No tienes una cuenta?",
+    "have-account": "¿Ya tienes una cuenta?",
+    "have-no-account": "¿No tienes una cuenta?",
     "remember": "Recuérdame",
     "welcome": "Bienvenido al Sistema de Negocios de ProT",
     "no-access": "Actualmente no cuentas con acceso a todas las funciones del sistema, ¡Solicítalo a tu líder!",
     "delete": "Eliminar",
-    "no-data": "No hay datos para mostrar"
+    "no-data": "No hay datos para mostrar",
+    "forgot-password": "¿Olvidaste tu contraseña?",
+    "recover-pass": "Recuperar"
   },
   "events": {
     "previous": "Anterior",
@@ -207,6 +210,24 @@
     "pay-traffic-description": "Te emociona Internet y quieres potenciar tu negocio a través de publicidad paga en Facebook e Instagram. Entra a este curso",
     "bonds-title": "Bonos",
     "bonds-description": "Sabemos que los obsequios te emocionan y más si son ¡Gratis! reclama aquí los bonos de marketing digital"
+  },
+  "notification": {
+    "email-sent": "¡Email enviado!",
+    "email-error": "¡Error con el envió!",
+    "user-not-found": "¡Error de usuario!",
+    "user-updated": "¡Actualizado!",
+    "user-created": "¡Creado!",
+    "user-deleted": "¡Eliminado!",
+    "password-change": "¡Cambio de contraseña!",
+    "message": {
+      "email-sent":"Hemos enviado tu nueva contraseña a tu correo electrónico",
+      "email-error": "Ha ocurrido un error al enviar la nueva contraseña, intenta nuevamente",
+      "user-not-found": "El usuario ingresado no existe en nuestros registros",
+      "user-updated": "El usuario se ha actualizado con éxito",
+      "user-created": "El usuario se ha creado con éxito",
+      "user-deleted": "El usuario se ha eliminado con éxito",
+      "password-change": "La contraseña se ha modificado con éxito"
+    }
   },
   "errors": {
     "wrong-pwd": "La contraseña ingresada es incorrecta",

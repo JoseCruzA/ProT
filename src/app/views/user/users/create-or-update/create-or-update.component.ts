@@ -1,5 +1,7 @@
 import { Component, EventEmitter, HostListener, Input, OnChanges, OnDestroy, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
+import { NotificationsService } from 'angular2-notifications';
 import { HashMap } from 'src/app/interfaces/HashMap.interface';
 import { Country } from 'src/app/models/country.model';
 import { Role } from 'src/app/models/role.model';
@@ -46,8 +48,11 @@ export class CreateOrUpdateComponent implements OnInit, OnChanges, OnDestroy {
   newUser: any;
   uploadImage: any;
   errors: string[] = [];
+  notification_title!: string;
+  notification_message!: string;
 
-  constructor(private userService: UserService, private uploadService: UploadService, private formGroup: FormBuilder) {
+  constructor(private userService: UserService, private uploadService: UploadService, private formGroup: FormBuilder,
+    private translateService: TranslateService, private notification: NotificationsService) {
     this.userForm = this.formGroup.group({
       image: new FormControl(),
       imageSrc: new FormControl(),
@@ -427,6 +432,21 @@ export class CreateOrUpdateComponent implements OnInit, OnChanges, OnDestroy {
         this.userForm.reset();
         this.flag = "";
         this.ngOnDestroy();
+
+        this.translateService.get(`notification.${response.name}`).subscribe((res: string) => {
+          this.notification_title = res;
+        });
+
+        this.translateService.get(`notification.message.${response.name}`).subscribe((res: string) => {
+          this.notification_message = res;
+        });
+
+        this.notification.success(this.notification_title, this.notification_message, {
+          position: ["top", "right"],
+          timeOut: 5000,
+          nimate: "fade",
+          showProgressBar: true,
+        });
       }, (error: any) => {
         if (error.error.code && error.error.code == 11000) {
           let key = Object.keys(error.error.keyValue)[0]
@@ -448,6 +468,21 @@ export class CreateOrUpdateComponent implements OnInit, OnChanges, OnDestroy {
         this.userForm.reset();
         this.flag = "";
         this.ngOnDestroy();
+
+        this.translateService.get(`notification.${response.name}`).subscribe((res: string) => {
+          this.notification_title = res;
+        });
+
+        this.translateService.get(`notification.message.${response.name}`).subscribe((res: string) => {
+          this.notification_message = res;
+        });
+
+        this.notification.success(this.notification_title, this.notification_message, {
+          position: ["top", "right"],
+          timeOut: 5000,
+          nimate: "fade",
+          showProgressBar: true,
+        });
       }, (error: any) => {
         if (error.error.code && error.error.code == 11000) {
           let key = Object.keys(error.error.keyValue)[0]

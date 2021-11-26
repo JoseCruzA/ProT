@@ -26,6 +26,12 @@
           <input type="checkbox" id="remember" name="remember" formControlName="remember">
             {{ 'general.remember' | translate }}
         </label>
+        <p class="forgot-info has-text-centered">
+          {{ 'general.forgot-password' | translate }}
+          <a (click)="closeAndRecover()">
+            {{ 'general.recover-pass' | translate }}
+          </a>
+        </p>
         <p class="already-info has-text-centered">
           {{ 'general.have-no-account' | translate }}
           <a (click)="closeAndRegister()">

@@ -111,6 +111,11 @@ div.cal-current-time-marker {
   background: rgba(103, 111, 160, 0.5);
 }
 
+.simple-notification.success {
+  background: linear-gradient(290deg, rgba(65,85,139,0.9) 0%, rgba(65, 77, 133, 0.9) 92%) !important;
+  border-radius: 20px;
+}
+
 @media screen and (min-width: 769px) and (orientation: portrait) {
   .cal-time-events {
     height: 50vw;

@@ -3,6 +3,8 @@ import { Component, Input, OnChanges, OnInit, Output, EventEmitter } from '@angu
 import { Country } from 'src/app/models/country.model';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
+import { NotificationsService } from 'angular2-notifications';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-profile',
@@ -32,8 +34,11 @@ export class ProfileComponent implements OnInit, OnChanges {
   selectedLanguage!: string;
   updateErrors: string[] = [];
   changeErrors: string[] = [];
+  notification_title!: string;
+  notification_message!: string;
 
-  constructor(private formGroup: FormBuilder, private userService: UserService) {
+  constructor(private formGroup: FormBuilder, private userService: UserService,
+    private notification: NotificationsService, private translateService: TranslateService) {
     this.update = this.formGroup.group({
       firstname: new FormControl("", [
         Validators.required
@@ -182,6 +187,21 @@ export class ProfileComponent implements OnInit, OnChanges {
 
     this.userService.updateUser(this.userT, this.tokenT).subscribe((response: any) => {
       this.refresh.emit();
+
+      this.translateService.get(`notification.${response.name}`).subscribe((res: string) => {
+        this.notification_title = res;
+      });
+
+      this.translateService.get(`notification.message.${response.name}`).subscribe((res: string) => {
+        this.notification_message = res;
+      });
+
+      this.notification.success(this.notification_title, this.notification_message, {
+        position: ["top", "right"],
+        timeOut: 5000,
+        nimate: "fade",
+        showProgressBar: true,
+      });
     }, (error) => {
       if (error.error.code && error.error.code == 11000) {
         let key = Object.keys(error.error.keyValue)[0]
@@ -207,6 +227,21 @@ export class ProfileComponent implements OnInit, OnChanges {
     this.changeErrors = [];
     this.userService.changePassword(this.userT._id, this.changePass.value, this.tokenT).subscribe((response: any) => {
       this.changePass.reset();
+
+      this.translateService.get(`notification.${response.name}`).subscribe((res: string) => {
+        this.notification_title = res;
+      });
+
+      this.translateService.get(`notification.message.${response.name}`).subscribe((res: string) => {
+        this.notification_message = res;
+      });
+
+      this.notification.success(this.notification_title, this.notification_message, {
+        position: ["top", "right"],
+        timeOut: 5000,
+        nimate: "fade",
+        showProgressBar: true,
+      });
     }, (error) => {
       if (error.error.code && error.error.code == 11000) {
         let key = Object.keys(error.error.keyValue)[0]
