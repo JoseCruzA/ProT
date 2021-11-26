@@ -22,6 +22,7 @@
     "page-title": "ProT System | Business system",
     "no-support": "Your browser doesn't support this element",
     "cancel": "Cancel",
+    "send": "Send",
     "firstname": "Firstname",
     "lastname": "Lastname",
     "username": "Username",
@@ -38,7 +39,9 @@
     "welcome": "Welcome to ProT Business System",
     "no-access": "Actually you have no access to all system functions, request for it to your upline!",
     "delete": "Delete",
-    "no-data": "There are no data to show"
+    "no-data": "There are no data to show",
+    "forgot-password": "Forgot your password?",
+    "recover-pass": "Recover"
   },
   "events": {
     "previous": "Previous",
@@ -207,6 +210,24 @@
     "pay-traffic-description": "If you feel exceited for internet and you want to enhace your business wit pay advertising in Facesbook and Instagram. You must join to this course",
     "bonds-title": "Bonds",
     "bonds-description": "We know that the gifts excited you and more if they are Free! Claim here the bonds of digital marketing"
+  },
+  "notification": {
+    "email-sent": "Email sent!",
+    "email-error": "Mistake with the shipment!",
+    "user-not-found": "User Error!",
+    "user-updated": "Updated!",
+    "user-created": "Created!",
+    "user-deleted": "Deleted!",
+    "password-change": "Password Change!",
+    "message": {
+      "email-sent": "We have sent your new password to your email",
+      "email-error": "An error occurred when sending the new password, try again",
+      "user-not-found": "The user entered doesn't exists in our registers",
+      "user-updated": "The user has been successfully updated",
+      "user-created": "The user has been successfully created",
+      "user-deleted": "The user has been successfully deleted",
+      "password-change": "The password has been successfully modified"
+    }
   },
   "errors": {
     "wrong-pwd": "The entered password is wrong",

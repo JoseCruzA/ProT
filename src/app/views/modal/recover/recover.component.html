@@ -1,0 +1,29 @@
+<div class="modal-background">
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title has-text-centered">
+        {{ 'general.recover-pass' | translate }} {{ 'general.password' | translate }}
+      </p>
+      <button class="delete" aria-label="close" (click)="returnLogin()"></button>
+    </header>
+    <form [formGroup]="recover" (ngSubmit)="onSubmit()">
+      <section class="modal-card-body">
+        <div class="field">
+          <label class="label">{{ 'general.username' | translate }} o {{ 'general.email' | translate }}</label>
+          <p class="control">
+            <input class="input" type="text" name="userRecover" id="userRecover"
+              formControlName="userRecover" required>
+          </p>
+        </div>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button button-submit" type="submit" [disabled]="!recover.valid">
+          {{ 'general.send' | translate }}
+        </button>
+        <button class="button button-reset" type="reset" (click)="returnLogin()">
+          {{ 'general.cancel' | translate }}
+        </button>
+      </footer>
+    </form>
+  </div>
+</div>

@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
 
   @Output() toRegister = new EventEmitter<boolean>();
   @Output() toLogin = new EventEmitter<boolean>();
+  @Output() toRecover = new EventEmitter<boolean>();
   login!: FormGroup;
 
   constructor(private formGroup: FormBuilder, private authService: AuthService, private translateService: TranslateService) {
@@ -63,6 +64,11 @@ export class LoginComponent implements OnInit {
   closeAndRegister() {
     this.login.reset();
     this.toRegister.emit(true);
+  }
+
+  closeAndRecover() {
+    this.login.reset();
+    this.toRecover.emit(true);
   }
 
   /**

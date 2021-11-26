@@ -47,6 +47,17 @@ export class AuthService {
   }
 
   /**
+   * Function that send a request for recover the user password
+   *
+   * @param user
+   * @returns
+   */
+  recoverPassword(user: any): Observable<HashMap> {
+    console.log(user);
+    return this.http.post<HashMap>(`${uri}auth/recover_password`, user, httpOtions);
+  }
+
+  /**
    * Funtion that get the logged user info
    *
    * @param {string} token the acces token for the user

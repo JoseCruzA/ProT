@@ -90,5 +90,9 @@
 </div>
 <div class="modal" [ngClass]="{ 'is-active': toLogin }">
   <app-login (toRegister)="setToRegister($event)"
-    (toLogin)="setToLogin($event)"></app-login>
+    (toLogin)="setToLogin($event)"
+    (toRecover)="setToRecover($event)"></app-login>
+</div>
+<div class="modal" [ngClass]="{ 'is-active': toRecover }">
+  <app-recover (toLogin)="setToLogin($event)"></app-recover>
 </div>
