@@ -250,7 +250,8 @@
     "exist-phone": "El número de celular ingresado ya está asociado a otra cuenta",
     "exist-campaign": "Ya existe una campaña con este nombre",
     "campaign-required": "El nombre de la campaña es requerido",
-    "wrong-current": "La contraseña actual ingresada es incorrecta"
+    "wrong-current": "La contraseña actual ingresada es incorrecta",
+    "need-email": "¡El ususario o correo electrónico es requerido!"
   },
   "lessons":{
     "in-progress":"EN PROGRESO",

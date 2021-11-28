@@ -250,7 +250,8 @@
     "exist-phone": "Already there is an account with this phone",
     "exist-campaign": "Already exist a campaign with this name",
     "campaign-required": "The campaign name is required",
-    "wrong-current": "The entered current password is wrong"
+    "wrong-current": "The entered current password is wrong",
+    "need-email": "The user or email is required!"
   },
   "lessons": {
     "in-progress": "IN PROGRESS",
