@@ -195,7 +195,7 @@ export class UserService {
     newUser.name['lastname'] = user.lastname ? user.lastname : "";
     newUser.contact["phone"]["code"] = user.code;
     newUser.contact["phone"]["number"] = user.phone ? user.phone : "";
-    newUser.contact["email"] = user.email;
+    newUser.contact["email"] = user.email.toLowerCase();
     newUser.country = user.country;
     newUser.password = user.password;
 
