@@ -53,7 +53,6 @@ export class AuthService {
    * @returns
    */
   recoverPassword(user: any): Observable<HashMap> {
-    console.log(user);
     return this.http.post<HashMap>(`${uri}auth/recover_password`, user, httpOtions);
   }
 
