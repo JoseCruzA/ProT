@@ -16,7 +16,6 @@ export class LandingComponent implements OnInit {
 
   ngOnInit(): void {
     let username = localStorage.getItem('username');
-    localStorage.removeItem('username');
 
     if (username) {
       this.userService.getUserByUsername(username).subscribe((user: User) => {
